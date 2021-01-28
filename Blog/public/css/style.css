@@ -1,0 +1,15 @@
+/*
+Stylesheet for the blog
+*/
+
+h1, h4, footer, .center
+{
+	text-align: center;
+}
+
+.myFrame
+{
+	 border-style: groove;
+	 padding: 10px;
+	 margin: 10px;
+}
