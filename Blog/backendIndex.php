@@ -26,9 +26,19 @@ try
 		}
 		elseif ($_GET['action'] == 'addPost')
 		{
-			if (isset($_POST['title']) && isset($_POST['lead']) && isset($_POST['content']) && isset($_POST['category']))
+			if (
+				isset($_POST['title']) &&
+				isset($_POST['lead']) &&
+				isset($_POST['content']) &&
+				isset($_POST['category'])
+			)
 			{
-				addNewPost($_POST['title'], $_POST['lead'], $_POST['content'], $_POST['category']);
+				addNewPost(
+					strip_tags(htmlspecialchars($_POST['title'])),
+					strip_tags(htmlspecialchars($_POST['lead'])),
+					strip_tags(htmlspecialchars($_POST['content'])),
+					strip_tags(htmlspecialchars($_POST['category']))
+				);
 			}
 			else
 			{
@@ -43,14 +53,26 @@ try
 			}
 			else
 			{
-				fillUpdatePostPage($_GET['post_id']);				
+				fillUpdatePostPage(strip_tags(htmlspecialchars($_GET['post_id'])));				
 			}
 		}
 		elseif ($_GET['action'] == 'updatePost')
 		{
-			if (isset($_POST['title']) && isset($_POST['lead']) && isset($_POST['content']) && isset($_POST['category']) && isset($_POST['post_id']))
+			if (
+				isset($_POST['title']) &&
+				isset($_POST['lead']) &&
+				isset($_POST['content']) &&
+				isset($_POST['category']) &&
+				isset($_POST['post_id'])
+			)
 			{
-				modifyPost($_POST['title'], $_POST['lead'], $_POST['content'], $_POST['category'], $_POST['post_id']);
+				modifyPost(
+					strip_tags(htmlspecialchars($_POST['title'])),
+					strip_tags(htmlspecialchars($_POST['lead'])),
+					strip_tags(htmlspecialchars($_POST['content'])),
+					strip_tags(htmlspecialchars($_POST['category'])),
+					strip_tags(htmlspecialchars($_POST['post_id']))
+				);
 			}
 			else
 			{
@@ -65,7 +87,7 @@ try
 			}
 			else
 			{
-				validateComment($_GET['comment_id']);
+				validateComment(strip_tags(htmlspecialchars($_GET['comment_id'])));
 			}
 		}
 		elseif ($_GET['action'] == 'deleteComment')
@@ -76,14 +98,14 @@ try
 			}
 			else
 			{
-				deleteComment($_GET['comment_id']);
+				deleteComment(strip_tags(htmlspecialchars($_GET['comment_id'])));
 			}
 		}
 		elseif ($_GET['action'] == 'activatePost')
 		{
 			if (isset($_GET['post_id']))
 			{
-				activatePost($_GET['post_id']);
+				activatePost(strip_tags(htmlspecialchars($_GET['post_id'])));
 			}
 			else
 			{
@@ -94,7 +116,7 @@ try
 		{
 			if (isset($_GET['post_id']))
 			{
-				deactivatePost($_GET['post_id']);
+				deactivatePost(strip_tags(htmlspecialchars($_GET['post_id'])));
 			}
 			else
 			{
