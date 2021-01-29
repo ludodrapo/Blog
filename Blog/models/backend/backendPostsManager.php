@@ -16,7 +16,7 @@ class PostsManager extends Manager
 		$db = $this->dbConnect();
 		$post_to_add = $db->prepare('INSERT INTO posts(user_id, title, lead, content, category) VALUES (:user_id, :title, :lead, :content, :category)');
 		$added_post = $post_to_add->execute(array(
-			'user_id'=>$_SESSION['user_id'],
+			'user_id'=>strip_tags(htmlspecialchars($_SESSION['user_id'])),
     		'title'=>$title,
     		'lead'=>$lead,
     		'content'=>$content,

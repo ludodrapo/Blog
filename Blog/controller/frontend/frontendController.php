@@ -65,7 +65,7 @@ function addComment($user_id, $post_id, $comment)
 	$comment_to_add = new CommentsManager();
 	$added_comment = $comment_to_add->addComment($user_id, $post_id, $comment);
 	if ($added_comment === false) {
-		throw new Exception("Impossible d'ajouter votre commentaire, désolé !", 1);
+		throw new Exception("Impossible d'ajouter ton commentaire, désolé.", 1);
 	}
 	else
 	{
@@ -85,7 +85,7 @@ function addNewUser($new_login_name, $new_password_1, $new_password_2, $new_emai
 
 	if (!empty($password_data))
 	{
-		throw new Exception('Malheureusement ce login_name existe déjà, désolé.<br />Pour revenir sur la page d\'accueil et essayer un autre login_name <a href="index.php?action=login">cliquez ici</a>.');
+		throw new Exception('Malheureusement ce pseudo existe déjà, désolé.<br />Pour revenir sur la page d\'accueil et essayer un autre login_name <a href="index.php?action=login">cliquez ici</a>.');
 			//<br /> Si vous avez oublié votre mot de passe, vous pouvez le réinitialiser <a href="">en cliquant ici</a>. (To add when the function initialize password is available)
 	}
 
@@ -136,7 +136,7 @@ function modifyEmail($new_email, $password)
 	}
 	elseif (!$checked_password_OK)
 	{
-		throw new Exception("Vous n'avez pas saisi le bon mot de passe associé à ce pseudo ! Pour essayer à nouveau <a href='index.php?action=updateEmail'>cliquez ici</a>", 1);
+		throw new Exception("Le mot de passe actuel saisi n'est pas celui associé à ce pseudo ! Pour essayer à nouveau <a href='index.php?action=updateEmail'>cliquez ici</a>", 1);
 	}
 	else
 	{
@@ -173,12 +173,12 @@ function modifyPassword($new_password_1, $new_password_2, $password)
 	}
 	elseif ($password == $new_password_1)
 	{
-		throw new Exception("Votre nouveau mot de passe est identique au précédent. Etait-ce vraiment nécessaire ?!", 1);
+		throw new Exception("Ce mot de passe est identique au précédent. Etait-ce vraiment nécessaire ?!", 1);
 		
 	}
 	elseif (!$checked_password_OK)
 	{
-		throw new Exception("Vous n'avez pas saisi le bon mot de passe associé à ce pseudo ! Pour essayer à nouveau <a href='index.php?action=updatePassword'>clique ici</a>", 1);
+		throw new Exception("Le mot de passe saisi n'est pas celui associé à ce pseudo. Pour essayer à nouveau <a href='index.php?action=updatePassword'>clique ici</a>", 1);
 	}
 	else
 	{
@@ -209,7 +209,7 @@ function login($login_name, $password)
 	$user_data = $user->getUserData($login_name);
 	if (empty($password_data))
 	{
-		throw new Exception('Nous n\'avons pas reconnu votre pseudo, <a href="index.php?action=login">cliquez ici</a> que vous souhaitiez réessayer ou créer un compte.');
+		throw new Exception('Ce pseudo n\'est pas dans notre base de données, <a href="index.php?action=login">clique ici</a> que tu souhaites réessayer ou bien créer un compte.');
 	}
 	elseif ($active_data['is_active'] = 0)
 	{
@@ -217,7 +217,7 @@ function login($login_name, $password)
 	}
 	elseif (!$password_ok)
 	{
-		throw new Exception('Vous n\'avez pas saisi le bon mot de passe associé à ce pseudo ! Pour essayer à nouveau <a href="index.php?action=login">cliquez ici</a>', 1);
+		throw new Exception("Le mot de passe saisi n'est pas celui associé à ce pseudo. Pour essayer à nouveau <a href='index.php?action=login'>cliquez ici</a>", 1);
 	}
 	else
 	{
@@ -240,14 +240,14 @@ function logout()
 
 function goToAdmin($password)
 {
-	$login_name = htmlspecialchars($_SESSION['login_name']);
+	$login_name = strip_tags(htmlspecialchars($_SESSION['login_name']));
 	$user = new UsersManager();
 	$password_data = $user->getUserPassword($login_name);
 	$password_ok = password_verify($password, $password_data['password']);
 
 	if (!$password_ok)
 	{
-		throw new Exception("Vous n'avez pas saisi le bon mot de passe associé à ce pseudo ! L'accés à la partie administration n'est pas autorisé<br /><a href='index.php'>Revenir au site</a>", 1);
+		throw new Exception("Le mot de passe saisi n'est pas celui associé à ce pseudo. L'accés à la partie administration n'est pas autorisé.<br /><a href='index.php'>Revenir au site</a>", 1);
 	}
 	else
 	{	
