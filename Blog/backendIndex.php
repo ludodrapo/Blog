@@ -27,17 +27,17 @@ try
 		elseif ($_GET['action'] == 'addPost')
 		{
 			if (
-				isset($_POST['title']) &&
-				isset($_POST['lead']) &&
-				isset($_POST['content']) &&
-				isset($_POST['category'])
+				isset($_POST['title']) && !empty($_POST['title']) &&
+				isset($_POST['lead']) && !empty($_POST['lead']) &&
+				isset($_POST['content']) && !empty($_POST['content']) &&
+				isset($_POST['category']) && !empty($_POST['category'])
 			)
 			{
 				addNewPost(
-					strip_tags(htmlspecialchars($_POST['title'])),
-					strip_tags(htmlspecialchars($_POST['lead'])),
-					strip_tags(htmlspecialchars($_POST['content'])),
-					strip_tags(htmlspecialchars($_POST['category']))
+					strip_tags($_POST['title']),
+					strip_tags($_POST['lead']),
+					strip_tags($_POST['content']),
+					strip_tags($_POST['category'])
 				);
 			}
 			else
@@ -53,25 +53,25 @@ try
 			}
 			else
 			{
-				fillUpdatePostPage(strip_tags(htmlspecialchars($_GET['post_id'])));				
+				fillUpdatePostPage(strip_tags($_GET['post_id']));				
 			}
 		}
 		elseif ($_GET['action'] == 'updatePost')
 		{
 			if (
-				isset($_POST['title']) &&
-				isset($_POST['lead']) &&
-				isset($_POST['content']) &&
-				isset($_POST['category']) &&
-				isset($_POST['post_id'])
+				isset($_POST['title']) && !empty($_POST['title']) &&
+				isset($_POST['lead']) && !empty($_POST['lead']) &&
+				isset($_POST['content']) && !empty($_POST['content']) &&
+				isset($_POST['category']) && !empty($_POST['category']) &&
+				isset($_POST['post_id']) && !empty($_POST['post_id'])
 			)
 			{
 				modifyPost(
-					strip_tags(htmlspecialchars($_POST['title'])),
-					strip_tags(htmlspecialchars($_POST['lead'])),
-					strip_tags(htmlspecialchars($_POST['content'])),
-					strip_tags(htmlspecialchars($_POST['category'])),
-					strip_tags(htmlspecialchars($_POST['post_id']))
+					strip_tags($_POST['title']),
+					strip_tags($_POST['lead']),
+					strip_tags($_POST['content']),
+					strip_tags($_POST['category']),
+					strip_tags($_POST['post_id'])
 				);
 			}
 			else
@@ -87,7 +87,7 @@ try
 			}
 			else
 			{
-				validateComment(strip_tags(htmlspecialchars($_GET['comment_id'])));
+				validateComment(strip_tags($_GET['comment_id']));
 			}
 		}
 		elseif ($_GET['action'] == 'deleteComment')
@@ -98,14 +98,14 @@ try
 			}
 			else
 			{
-				deleteComment(strip_tags(htmlspecialchars($_GET['comment_id'])));
+				deleteComment(strip_tags($_GET['comment_id']));
 			}
 		}
 		elseif ($_GET['action'] == 'activatePost')
 		{
 			if (isset($_GET['post_id']))
 			{
-				activatePost(strip_tags(htmlspecialchars($_GET['post_id'])));
+				activatePost(strip_tags($_GET['post_id']));
 			}
 			else
 			{
@@ -116,7 +116,7 @@ try
 		{
 			if (isset($_GET['post_id']))
 			{
-				deactivatePost(strip_tags(htmlspecialchars($_GET['post_id'])));
+				deactivatePost(strip_tags($_GET['post_id']));
 			}
 			else
 			{

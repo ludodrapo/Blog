@@ -10,8 +10,8 @@ class CommentsManager extends Manager
 
 		$comment_to_add = $db->prepare('INSERT INTO comments(user_id, post_id, comment) VALUES (:user_id, :post_id, :comment)');
 		$added_comment = $comment_to_add->execute(array(
-			'user_id'=>$user_id,
-    		'post_id'=>$post_id,
+			'user_id'=>(int)$user_id,
+    		'post_id'=>(int)$post_id,
     		'comment'=>$comment
 		));
 		return $added_comment;
@@ -30,7 +30,8 @@ class CommentsManager extends Manager
 	public function getUserCommentsCount($user_id)
 	{
 		$db = $this->dbConnect();
-		$user_comments_count = $db->prepare('SELECT COUNT(comment) AS comments_count, COUNT(post_id) AS posts_count FROM comments WHERE user_id = ?');
+		$user_id = (int)$user_id;
+		$user_comments_count = $db->prepare('SELECT COUNT(comment) AS comments_count, COUNT(DISTINCT post_id) AS posts_count FROM comments WHERE user_id = ?');
 		$user_comments_count->execute(array($user_id));
 
 		$comments_count = $user_comments_count->fetch(PDO::FETCH_ASSOC);

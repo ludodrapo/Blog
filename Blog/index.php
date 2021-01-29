@@ -20,7 +20,7 @@ try
 			}
 			else
 			{
-				displayPostAndComments(strip_tags(htmlspecialchars($_GET['post_id'])));
+				displayPostAndComments(strip_tags($_GET['post_id']));
 			}
 		}
 		elseif ($_GET['action'] == 'addComment')
@@ -30,9 +30,9 @@ try
 				throw new Exception("Il manque des données pour l'envoi de ce commentaire.", 1);
 			}
 			addComment(
-				strip_tags(htmlspecialchars($_SESSION['user_id'])),
-				strip_tags(htmlspecialchars($_GET['post_id'])),
-				strip_tags(htmlspecialchars($_POST['comment']))
+				strip_tags($_SESSION['user_id']),
+				strip_tags($_GET['post_id']),
+				strip_tags($_POST['comment'])
 			);
 		}
 		elseif ($_GET['action'] == 'login')
@@ -47,7 +47,7 @@ try
 			}
 			else
 			{
-				countUserComments(strip_tags(htmlspecialchars($_SESSION['user_id'])));			
+				countUserComments(strip_tags($_SESSION['user_id']));			
 			}
 		}
 		elseif ($_GET['action'] == 'updateEmail')
@@ -69,25 +69,28 @@ try
 	}
 	elseif (!isset($_GET['action']) && empty($_SESSION['login_name']))
 	{
-		if (isset($_POST['login_name']) && isset($_POST['password']))
+		if (
+			isset($_POST['login_name']) && isset($_POST['password']) &&
+			!empty($_POST['login_name']) && !empty($_POST['password'])
+		)
 		{
 			login(
-				strip_tags(htmlspecialchars($_POST['login_name'])),
-				strip_tags(htmlspecialchars($_POST['password']))
+				strip_tags($_POST['login_name']),
+				strip_tags($_POST['password'])
 			);
 		}
 		elseif (
-			isset($_POST['new_login_name']) &&
-			isset($_POST['new_password_1']) &&
-			isset($_POST['new_password_2']) &&
-			isset($_POST['new_email'])
+			isset($_POST['new_login_name']) && !empty($_POST['new_login_name']) &&
+			isset($_POST['new_password_1']) && !empty($_POST['new_password_1']) &&
+			isset($_POST['new_password_2']) && !empty($_POST['new_password_2']) &&
+			isset($_POST['new_email']) && !empty($_POST['new_email'])
 		)
 		{
 			addNewUser(
-				strip_tags(htmlspecialchars($_POST['new_login_name'])),
-				strip_tags(htmlspecialchars($_POST['new_password_1'])),
-				strip_tags(htmlspecialchars($_POST['new_password_2'])),
-				strip_tags(htmlspecialchars($_POST['new_email']))
+				strip_tags($_POST['new_login_name']),
+				strip_tags($_POST['new_password_1']),
+				strip_tags($_POST['new_password_2']),
+				strip_tags($_POST['new_email'])
 			);
 		}
 		else
@@ -100,22 +103,26 @@ try
 		if (isset($_POST['new_email']) && isset($_POST['password']))
 		{	
 			modifyEmail(
-				strip_tags(htmlspecialchars($_POST['new_email'])),
-				strip_tags(htmlspecialchars($_POST['password']))
+				strip_tags($_POST['new_email']),
+				strip_tags($_POST['password'])
 			);
 		}
 		elseif (
-			isset($_POST['new_password_1']) &&
-			isset($_POST['new_password_2']) &&
-			isset($_POST['password'])
+			isset($_POST['new_password_1']) && !empty($_POST['new_password_1']) &&
+			isset($_POST['new_password_2']) && !empty($_POST['new_password_2']) &&
+			isset($_POST['password']) && !empty($_POST['password'])
 		)
 		{
-			modifyPassword($_POST['new_password_1'], $_POST['new_password_2'], $_POST['password']);
+			modifyPassword(
+				strip_tags($_POST['new_password_1']),
+				strip_tags($_POST['new_password_2']),
+				strip_tags($_POST['password'])
+			);
 		}
 		elseif (isset($_POST['password']) && !isset($_POST['new_email']))
 		// need the !isset new_email so the modifyEmail function (above) can work
 		{	
-			goToAdmin(strip_tags(htmlspecialchars($_POST['password'])));
+			goToAdmin(strip_tags($_POST['password']));
 		}
 
 		else

@@ -123,7 +123,7 @@ function addNewUser($new_login_name, $new_password_1, $new_password_2, $new_emai
 function modifyEmail($new_email, $password)
 {
 	//initializing data
-	$user_id = (int)strip_tags(htmlspecialchars($_SESSION['user_id']));
+	$user_id = (int)strip_tags($_SESSION['user_id']);
 	$new_email = filter_var($new_email, FILTER_SANITIZE_EMAIL);
 
 	$password_to_check = new UsersManager();
@@ -157,7 +157,7 @@ function modifyEmail($new_email, $password)
 function modifyPassword($new_password_1, $new_password_2, $password)
 {
 	//initializing data
-	$user_id = (int)strip_tags(htmlspecialchars($_SESSION['user_id']));
+	$user_id = (int)strip_tags($_SESSION['user_id']);
 
 	$password_to_check = new UsersManager();
 	$password_data = $password_to_check->getUserPassword($user_id);
@@ -240,7 +240,7 @@ function logout()
 
 function goToAdmin($password)
 {
-	$login_name = strip_tags(htmlspecialchars($_SESSION['login_name']));
+	$login_name = strip_tags($_SESSION['login_name']);
 	$user = new UsersManager();
 	$password_data = $user->getUserPassword($login_name);
 	$password_ok = password_verify($password, $password_data['password']);
