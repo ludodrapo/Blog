@@ -2,6 +2,7 @@
 
 session_start();
 
+
 require('controller/backend/backendController.php');
 
 try
@@ -92,9 +93,9 @@ try
 		}
 		elseif ($_GET['action'] == 'deleteComment')
 		{
-			if (!isset($_GET['comment_id']))
+			if (!isset($_GET['comment_id']) || empty($_GET['comment_id']))
 			{
-				throw new Exception("Nous n'avons pas reconnu le commentaire à supprimer, désolé.", 1);
+				throw new Exception("Nous n'avons pas reconnu le commentaire à supprimer.", 1);
 			}
 			else
 			{
@@ -121,6 +122,28 @@ try
 			else
 			{
 				throw new Exception("Nous n'avons pas reconnu l'article à désactiver", 1);
+			}
+		}
+		elseif ($_GET['action'] == 'blockUser')
+		{
+			if (isset($_GET['user_id']))
+			{
+				blockUser(strip_tags($_GET['user_id']));
+			}
+			else
+			{
+				throw new Exception("Nous n'avons pas reconnu l'identifiant de l'utilisateur à bloquer.", 1);
+			}
+		}
+		elseif ($_GET['action'] == 'authorizeUser')
+		{
+			if (isset($_GET['user_id']))
+			{
+				authorizeUser(strip_tags($_GET['user_id']));
+			}
+			else
+			{
+				throw new Exception("Nous n'avons pas reconnu l'idendtifiant de l'utilisateur à réactiver.", 1);
 			}
 		}
 	}

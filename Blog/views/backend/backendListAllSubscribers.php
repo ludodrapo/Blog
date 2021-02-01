@@ -12,6 +12,20 @@ while ($user = $listed_all_users->fetch())
 
 	<strong><?=htmlspecialchars($user['login_name'])?></strong><br />
 	Inscrit(e) depuis le <?=htmlspecialchars($user['registration_date'])?><br />
+	<?php
+	if ($user['is_active'] == 1)
+	{
+	?>
+	<a href="backendIndex.php?action=blockUser&amp;user_id=<?=$user['user_id']?>">Bloquer</a>
+	<?php
+	}
+	elseif ($user['is_active'] == 0)
+	{
+	?>
+	<a href="backendIndex.php?action=authorizeUser&amp;user_id=<?=$user['user_id']?>">Réactiver</a>
+	<?php
+	}
+	?>
 
 </div>
 <?php

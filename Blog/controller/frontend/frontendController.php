@@ -255,4 +255,42 @@ function goToAdmin($password)
 	}
 }
 
+/////////////////////
+// MAIL FUNCTIONS //
+///////////////////
+
+
+function contactMail($name, $email, $message)
+{
+	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		throw new Exception("L'adresse mail renseignée n'est pas valide.", 1);
+	}
+	else
+	{
+		$to = "ludodrapo@gmail.com";
+		$subject = "Blog Contact Form : $name";
+		$body = "On a reçu un message depuis le formulaire du blog.\n\n"."Voici le message :\n$message";
+		$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+		$headers .= "Reply-To: $email";
+
+		if(!mail($to, $subject, $body, $headers))
+		{
+			throw new Exception("Impossible d'envoyer le message.", 1);
+		}
+		displayLastPosts();
+	}
+}
+
+
+
+
+
+
+
+
+
+
 

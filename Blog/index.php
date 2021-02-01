@@ -67,6 +67,18 @@ try
 			logout();
 		}
 	}
+	elseif (
+		isset($_POST['name']) && !empty($_POST['name']) &&
+		isset($_POST['email']) && !empty($_POST['email']) &&
+		isset($_POST['message']) && !empty($_POST['message'])
+	)
+	{
+		contactMail(
+			strip_tags($_POST['name']),
+			strip_tags($_POST['email']),
+			strip_tags($_POST['message'])
+		);
+	}
 	elseif (!isset($_GET['action']) && empty($_SESSION['login_name']))
 	{
 		if (
@@ -120,7 +132,7 @@ try
 			);
 		}
 		elseif (isset($_POST['password']) && !isset($_POST['new_email']))
-		// need the !isset new_email so the modifyEmail function (above) can work
+		// need here the !isset(new_email) so the modifyEmail function (above) can work
 		{	
 			goToAdmin(strip_tags($_POST['password']));
 		}
