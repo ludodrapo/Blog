@@ -28,10 +28,10 @@
 
 	</body>
 
-	<footer>
+	<footer class="center">
 
 		<p>
-			<hr />Ludo Drapo, et le web est plus beau.<br />
+			<hr />Ludo Drapo, et le web est plus beau.<br /><hr />
 			<a href="index.php">Retour au site public</a>
 		</p>
 

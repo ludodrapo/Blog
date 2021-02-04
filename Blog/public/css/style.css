@@ -2,7 +2,7 @@
 Stylesheet for the blog
 */
 
-h1, h4, footer, .center
+h1, .center
 {
 	text-align: center;
 }

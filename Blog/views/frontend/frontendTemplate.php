@@ -44,22 +44,51 @@ elseif (isset($_SESSION['login_name']))
 
 		<?= $content ?>
 
-	</body>
+		<hr />
 
-	<footer>
+		<footer>
 
-		<p>
-			<hr />Ludo Drapo, et le web est plus beau.<br /><hr />
+<?php
+
+if (!isset($_SESSION['profile']) || $_SESSION['profile'] == 'subscriber')
+{
+?>
+			<div class="myFrame">
+				<form method="post" action="index.php" style="text-align: left">
+					<p>
+						Pour me contacter directement, merci d'utiliser ce formulaire ...
+					</p>
+					<p>
+						<input type="text" name="name" placeholder="name" required />
+					</p>
+					<p>
+						<input type="text" name="email" placeholder="email" required />
+					</p>
+					<p>
+						<textarea name="message" rows="5" cols="45" placeholder="Par exemple : il est vraiment top ce site !" required></textarea>
+					</p>
+					<button type="submit">C'est parti !</button>
+				</form>
+			</div>
+<?php
+}
+?>
+			<p class="center">
+				Ludo Drapo, et le web est plus beau.<br />
+			</p>
+
 <?php
 if ($_SESSION['profile'] == 'administrator')
 {
 ?>
-			<a href="index.php?action=goToAdmin">Administration du site</a>
+			<p class="center">
+				<a href="index.php?action=goToAdmin">Administration du site</a>
+			</p>
 <?php
 }
 ?>
-		</p>
+		</footer>
 
-	</footer>
+	</body>
 		
 </html>

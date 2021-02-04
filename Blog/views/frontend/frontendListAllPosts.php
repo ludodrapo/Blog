@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 
-<h2 class="center">Articles actuellement en ligne</h2>
+<h2 class="center">Tous les articles</h2>
 
 <?php
 

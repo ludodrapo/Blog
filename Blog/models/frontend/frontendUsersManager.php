@@ -4,7 +4,7 @@ require_once('models/Manager.php');
 
 class UsersManager extends Manager
 {
-	function getUserPassword($info)
+	public function getUserPassword($info)
 	{
 		$db = $this->dbConnect();
 		if (is_int($info))
@@ -21,7 +21,7 @@ class UsersManager extends Manager
 		return $password_data;
 	}
 
-	function getUserIsActive($info)
+	public function getUserIsActive($info)
 	{
 		$db = $this->dbConnect();
 		if (is_int($info))
@@ -38,7 +38,7 @@ class UsersManager extends Manager
 		return $active_data;
 	}
 
-	function getUserData($info)
+	public function getUserData($info)
 	{
 		$db = $this->dbConnect();
 		if (is_int($info))
@@ -55,7 +55,7 @@ class UsersManager extends Manager
 		return $user_data;
 	}
 
-	function recordNewUser($new_login_name, $new_password, $new_email)
+	public function recordNewUser($new_login_name, $new_password, $new_email)
 	{
 		$db = $this->dbConnect();
 		$req_record_new_user = $db->prepare('INSERT INTO users(login_name, password, email) VALUES (:login_name, :password, :email)');
@@ -68,7 +68,7 @@ class UsersManager extends Manager
 		return $added_user;
 	}
 
-	function updateEmail($user_id, $new_email)
+	public function updateEmail($user_id, $new_email)
 	{
 		$db = $this->dbConnect();
 		$req_update_email = $db->prepare('UPDATE users SET email = :new_email WHERE user_id = :user_id');
@@ -80,7 +80,7 @@ class UsersManager extends Manager
 		return $updated_email;
 	}
 
-	function updatePassword($user_id, $new_password)
+	public function updatePassword($user_id, $new_password)
 	{
 		$db = $this->dbConnect();
 		$req_update_password = $db->prepare('UPDATE users SET password = :new_password WHERE user_id = :user_id');

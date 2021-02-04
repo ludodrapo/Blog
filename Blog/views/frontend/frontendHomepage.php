@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<h2 class="center">Les derniers articles publiés</h2>
+<h2 class="center">Derniers articles publiés</h2>
 
 <?php
 
@@ -37,9 +37,9 @@ while ($post = $listed_last_posts->fetch())
 $listed_last_posts->closeCursor();
 ?>
 
-<hr />
+<hr /><h2 class="center">Le CV de Ludo</h2>
 
-<h2 class="center">Le CV de Ludo</h2>
+
 
 <?php $content = ob_get_clean(); ?>
 
