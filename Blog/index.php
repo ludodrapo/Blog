@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 require('controller/frontend/frontendController.php');
@@ -25,7 +24,14 @@ try
 		}
 		elseif ($_GET['action'] == 'addComment')
 		{
-			if (!isset($_GET['post_id']) || !isset($_POST['comment']))
+			if (
+				!isset($_GET['post_id']) ||
+				!isset($_POST['comment']) ||
+				!isset($_SESSION['user_id']) ||
+				empty($_GET['post_id']) ||
+				empty($_POST['comment']) ||
+				empty($_SESSION['user_id'])
+			)
 			{
 				throw new Exception("Il manque des données pour l'envoi de ce commentaire.", 1);
 			}
@@ -67,18 +73,6 @@ try
 			logout();
 		}
 	}
-	elseif (
-		isset($_POST['name']) && !empty($_POST['name']) &&
-		isset($_POST['email']) && !empty($_POST['email']) &&
-		isset($_POST['message']) && !empty($_POST['message'])
-	)
-	{
-		contactMail(
-			strip_tags($_POST['name']),
-			strip_tags($_POST['email']),
-			strip_tags($_POST['message'])
-		);
-	}
 	elseif (!isset($_GET['action']) && empty($_SESSION['login_name']))
 	{
 		if (
@@ -103,6 +97,18 @@ try
 				strip_tags($_POST['new_password_1']),
 				strip_tags($_POST['new_password_2']),
 				strip_tags($_POST['new_email'])
+			);
+		}
+		elseif (
+		    isset($_POST['name']) && !empty($_POST['name']) &&
+		    isset($_POST['email']) && !empty($_POST['email']) &&
+		    isset($_POST['message']) && !empty($_POST['message'])
+		)
+		{
+			contactMail(
+				strip_tags($_POST['name']),
+				strip_tags($_POST['email']),
+				strip_tags($_POST['message'])
 			);
 		}
 		else
@@ -131,7 +137,18 @@ try
 				strip_tags($_POST['password'])
 			);
 		}
-		elseif (isset($_POST['password']) && !isset($_POST['new_email']))
+		elseif (isset($_POST['message']) && !empty($_POST['message']))
+		{
+			contactMail(
+				strip_tags($_SESSION['login_name']),
+				strip_tags($_SESSION['email']),
+				strip_tags($_POST['message'])
+			);
+		}
+		elseif (
+			isset($_POST['password']) &&
+			!isset($_POST['new_email']) &&
+			$_SESSION['profile'] == 'administrator')
 		// need here the !isset(new_email) so the modifyEmail function (above) can work
 		{	
 			goToAdmin(strip_tags($_POST['password']));
@@ -150,5 +167,12 @@ try
 
 catch(Exception $e)
 {
-	echo 'Erreur : ' . $e->getMessage();
+	$bug_message = $e->getMessage();
+
+	require('views/frontend/frontendBugMessage.php');
+	//echo 'Aïe aïe aïe : ' . $e->getMessage();
 }
+
+
+
+

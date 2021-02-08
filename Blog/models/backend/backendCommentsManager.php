@@ -55,4 +55,19 @@ class CommentsManager extends Manager
 
 		return $deleted_comment;
 	}
+
+	public function countAwaitingComments()
+	{
+		$db = $this->dbConnect();
+		$awaiting_comments_query = $db->query('SELECT COUNT(comment_id) AS count FROM comments WHERE comments.is_ok = 0');
+		$awaiting_comments = $awaiting_comments_query->fetch(PDO::FETCH_ASSOC);
+
+		return $awaiting_comments;
+	}
 }
+
+
+
+
+
+

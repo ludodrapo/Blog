@@ -43,11 +43,11 @@ class UsersManager extends Manager
 		$db = $this->dbConnect();
 		if (is_int($info))
 		{
-			$user_data_query = $db->prepare('SELECT login_name, email, profile, registration_date FROM users WHERE user_id = ?');
+			$user_data_query = $db->prepare('SELECT login_name, email, profile, DATE_FORMAT(registration_date, "%d/%m/%Y") AS registration_date FROM users WHERE user_id = ?');
 		}
 		elseif (is_string($info))
 		{
-			$user_data_query = $db->prepare('SELECT user_id, email, profile, registration_date FROM users WHERE login_name = ?');
+			$user_data_query = $db->prepare('SELECT user_id, email, profile, DATE_FORMAT(registration_date, "%d/%m/%Y") AS registration_date FROM users WHERE login_name = ?');
 		}
 		$user_data_query->execute(array($info));
 		$user_data = $user_data_query->fetch(PDO::FETCH_ASSOC);

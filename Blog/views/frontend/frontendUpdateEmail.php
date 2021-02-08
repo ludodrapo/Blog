@@ -2,32 +2,45 @@
 
 <?php ob_start(); ?>
 
-<h2 class="center">Modification de ton email de contact</h2>
-
-<form method="post" action="index.php">
-
-	<p>
-		Saisis ta nouvelle adresse mail :
-	</p>
-	<p class="center">
-		<input type="text" name="new_email" required />
-	</p>
-	<p>
-		Et par mesure de sécurité, il faut également saisir ton mot de passe :
-	</p>
-	<p class="center">
-		<input type="password" name="password" required />
-	</p>
-	<p class="center">
-		<button type="submit">Valider</button>
-	</p>
-
-</form>
-
-<p class="center">
-	<a href="index.php?action=profile"><button>Annuler</button></a>
-</p>
-
+<section class="page-section">
+    <div class="container mt-lg-5 mt-4">
+                <!-- Contact Section Heading-->
+        <h3 class="text-center text-uppercase text-secondary mb-0">Modification de ton adresse mail de contact</h3>
+                <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+                <!-- Contact Section Form-->
+        <div class="row">
+            <div class="col-lg-8 mx-lg-auto mx-5 bg-white pb-5 shadow rounded">
+                <form method="post" action="index.php" class="was-validated p-3">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-3 pb-2">
+                            <label>Nouvel email</label>
+                            <input class="form-control" name="new_email" type="email" placeholder="Nouvelle adresse mail" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-3 pb-2">
+                            <label>Mot de passe</label>
+                            <input type="password" class="form-control" name="password" placeholder="Mot de passe actuel" required />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group text-center">
+                    	<button class="btn btn-info btn-l" type="submit"><i class="fas fa-thumbs-up"></i> Je confirme le changement</button>
+                    </div>
+                </form>
+                <br />
+                <div class="text-center">
+                	<a href="index.php?action=profile"><button class="btn btn-danger btn-l"><i class="fas fa-thumbs-down"></i> Non, finalement, non.</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php $content = ob_get_clean(); ?>
 

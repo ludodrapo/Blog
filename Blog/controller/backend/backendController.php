@@ -85,7 +85,7 @@ function addNewPost($title, $lead, $content, $category)
 	$added_post = $new_post->addPost($title, $lead, $content, $category);
 	if ($added_post === false)
 	{
-		throw new Exception('Impossible d\'enregristrer l\'article, désolé.');
+		throw new Exception("Une erreur est survenue. Impossible d'enregistrer l'article.");
 	}
 	else
 	{
@@ -106,7 +106,7 @@ function modifyPost($title, $lead, $content, $category, $post_id)
 	$modified_post = $post_to_modify->updatePost($title, $lead, $content, $category, $post_id);
 	if ($modified_post === false)
 	{
-		throw new Exception("Impossible de modifer l'article, désolé.", 1);
+		throw new Exception("Une erreur est survenue. Impossible de modifer l'article.", 1);
 	}
 	else
 	{
@@ -120,7 +120,7 @@ function activatePost($post_id)
 	$activated_post = $post_to_activate->activatePost($post_id);
 	if ($activated_post === false)
 	{
-		throw new Exception("Impossible d'activer l'article, désolé.", 1);
+		throw new Exception("Une erreur est survenue. Impossible d'activer l'article..", 1);
 	}
 	else
 	{
@@ -134,7 +134,7 @@ function deactivatePost($post_id)
 	$deactivated_post = $post_to_deactivate->deactivatePost($post_id);
 	if ($deactivated_post === false)
 	{
-		throw new Exception("Impossible de désactiver l'article, désolé.", 1);
+		throw new Exception("Une erreur est survenue. Impossible de désactiver l'article.", 1);
 	}
 	else
 	{
@@ -161,7 +161,7 @@ function validateComment($comment_id)
 
 	if ($validated_comment === false)
 	{
-		throw new Exception("Impossible de valider ce commentaire, désolé.", 1);
+		throw new Exception("Une erreur est survenue. Impossible de valider ce commentaire.", 1);
 	}
 	else
 	{
@@ -180,7 +180,7 @@ function deleteComment($comment_id)
 
 	if ($deleted_comment === false)
 	{
-		throw new Exception("Impossible de supprimer ce commentaire, désolé.", 1);
+		throw new Exception("Une erreur est survenue. Impossible de supprimer ce commentaire.", 1);
 	}
 	else
 	{	
@@ -196,5 +196,28 @@ function deleteComment($comment_id)
 		displayAwaitingComments();
 	}
 }
+
+  ////////////////////////
+ // HOMEPAGE FUNCTIONS //
+////////////////////////
+
+function fillBackendHomepage()
+{
+	$comments = new CommentsManager();
+	$posts = new PostsManager();
+	$awaiting_comments = $comments->countAwaitingComments();
+	$posts_ranking = $posts->getPostsRanking();
+
+	require('views/backend/backendHomepage.php');
+}
+
+
+
+
+
+
+
+
+
 
 
