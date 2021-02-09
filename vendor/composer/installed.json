@@ -1,0 +1,60 @@
+{
+    "packages": [
+        {
+            "name": "tinymce/tinymce",
+            "version": "5.6.2",
+            "version_normalized": "5.6.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tinymce/tinymce-dist.git",
+                "reference": "310051defb85fec8581ace8b739ab7b18023db8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/310051defb85fec8581ace8b739ab7b18023db8a",
+                "reference": "310051defb85fec8581ace8b739ab7b18023db8a",
+                "shasum": ""
+            },
+            "time": "2020-12-08T07:23:49+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "tinymce.js",
+                        "plugins/*/plugin.js",
+                        "themes/*/theme.js",
+                        "themes/*/icons.js"
+                    ],
+                    "files": [
+                        "tinymce.min.js",
+                        "plugins/*/plugin.min.js",
+                        "themes/*/theme.min.js",
+                        "skins/**",
+                        "icons/*/icons.min.js"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-only"
+            ],
+            "description": "Web based JavaScript HTML WYSIWYG editor control.",
+            "homepage": "http://www.tinymce.com",
+            "keywords": [
+                "editor",
+                "html",
+                "javascript",
+                "richtext",
+                "tinymce",
+                "wysiwyg"
+            ],
+            "support": {
+                "source": "https://github.com/tinymce/tinymce-dist/tree/5.6.2"
+            },
+            "install-path": "../tinymce/tinymce"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
