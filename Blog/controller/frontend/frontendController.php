@@ -10,6 +10,8 @@ require_once('models/frontend/frontendUsersManager.php');
 // POSTS FUNCTIONS //
 ////////////////////
 
+// $PostManager = new PostsManager();
+
 function displayLastPosts()
 {
 	$last_posts = new PostsManager();
@@ -65,10 +67,20 @@ function addComment($user_id, $post_id, $comment)
 	$comment_to_add = new CommentsManager();
 	$added_comment = $comment_to_add->addComment($user_id, $post_id, $comment);
 	if ($added_comment === false) {
-		throw new Exception("Impossible d'ajouter ton commentaire, désolé.", 1);
+		throw new Exception("Une erreur est survenue. Impossible d'ajouter ton commentaire, désolé.", 1);
 	}
 	else
 	{
+		$to = "ludodrapo@gmail.com";
+		$subject = "Nouveau commentaire";
+		$body = "Un nouveau commentaire en attente de validation vient d'être laissé sur le blog :\n\n\"$comment\"\n\n";
+		$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+
+		if(!mail($to, $subject, $body, $headers))
+		{
+			throw new Exception("Impossible d'avertir l'administrateur du site pour validation du commentaire.", 1);
+		}
+
 		require('views/frontend/frontendThanksComment.php');
 	}
 }
@@ -209,15 +221,15 @@ function login($login_name, $password)
 	$user_data = $user->getUserData($login_name);
 	if (empty($password_data))
 	{
-		throw new Exception('Ce pseudo n\'est pas dans notre base de données, <a href="index.php?action=login">clique ici</a> que tu souhaites réessayer ou bien créer un compte.');
+		throw new Exception("Nous n'avons pas reconnu ton pseudo,<a href='index.php?action=login'> clique ici</a> que tu souhaites réessayer ou bien créer un compte.");
 	}
-	elseif ($active_data['is_active'] = 0)
+	elseif ($active_data['is_active'] == 0)
 	{
-		throw new Exception("Ce compte a été désactivé, merci de nous contacter via le formulaire du site si besoin.", 1);
+		throw new Exception("Ce compte a été désactivé,<br /> merci de nous contacter via le formulaire du site si besoin.", 1);
 	}
 	elseif (!$password_ok)
 	{
-		throw new Exception("Le mot de passe saisi n'est pas celui associé à ce pseudo. Pour essayer à nouveau <a href='index.php?action=login'>cliquez ici</a>", 1);
+		throw new Exception("Le mot de passe saisi n'est pas celui associé à ce pseudo.", 1);
 	}
 	else
 	{
@@ -247,7 +259,7 @@ function goToAdmin($password)
 
 	if (!$password_ok)
 	{
-		throw new Exception("Le mot de passe saisi n'est pas celui associé à ce pseudo. L'accés à la partie administration n'est pas autorisé.<br /><a href='index.php'>Revenir au site</a>", 1);
+		throw new Exception("Le mot de passe saisi n'est pas celui associé au compte administrateur. L'accés à la partie administration n'est donc pas autorisé.", 1);
 	}
 	else
 	{	
@@ -280,11 +292,17 @@ function contactMail($name, $email, $message)
 		{
 			throw new Exception("Impossible d'envoyer le message.", 1);
 		}
-		displayLastPosts();
+		else
+		{
+			require('views/frontend/frontendThanksMail.php');
+		}
 	}
 }
 
 
+  /////////////////////
+ // OTHER FUNCTIONS //
+/////////////////////
 
 
 

@@ -2,39 +2,88 @@
 
 <?php ob_start(); ?>
 
-<h4>Déja membre ? Bravo, tu peux te connecter ...</h4>
+<section class="page-section">
+    <div class="container mt-3 mt-lg-5">
+<!-- login form -->
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mt-3 mb-5">
+                <div class="portfolio-item mx-auto bg-white p-4 shadow">
+                    <h4 class="text-center text-uppercase text-secondary">Déjà membre ?<br />Tu peux te connecter : </h4>
+            <!-- Icon Divider-->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-user"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <form method="post" action="index.php" class="was-validated">
+                        <div class="control-group">
+            	            <div class="form-group floating-label-form-group controls mb-3 pb-2">
+                                <label>Pseudo</label>
+                                <input class="form-control" name="login_name" type="text" placeholder="Pseudo" required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                             <div class="form-group floating-label-form-group controls mb-3 pb-2">
+                                <label>Mot de passe</label>
+                                <input type="password" class="form-control" name="password" placeholder="Mot de passe" required />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="control-group">
+                            <div class="form-group text-center">
+                                <button class="btn btn-info btn-l" type="submit">Valider</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+      
 
-<form method="post" action="index.php" class="center">
-	<p>
-		Pseudo : <input type="text" name="login_name" required autocomplete="off" />
-	</p>
-	<p>
-		Mot de passe : <input type="password" name="password" required />	
-	</p>
-	<p>
-		<button type="submit">Valider</button>
-	</p>
-</form>
+    <!-- sign in form -->
 
-<h4>Pas encore membre ? Pas grave, tu y es presque ...</h4>
-
-<form method="post" action="index.php">
-	<p>
-		Saisis un pseudo que tu apprécies : <input type="text" name="new_login_name" required placeholder="Votre pseudo" title="Un bon pseudo, c'est important !" oninvalid="this.setCustomValidity('Pas le choix, il faut saisir un pseudo !')" oninput="this.setCustomValidity('')" />
-	</p>
-	<p>
-		Saisis un mot de passe : <input type="password" name="new_password_1" required /><br /><em>(Attention : pour votre propre sécurité, votre mot de passe doit être composé d'entre 8 et 16 caractères et contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.)</em>
-	</p>
-	<p>
-		Saisis à nouveau le mot de passe : <input type="password" name="new_password_2" required />
-	</p>
-	<p>
-		Saisis une adresse mail valide : <input type="text" name="new_email" required />
-	</p>
-	<p class="center">
-		<button type="submit">Je valide !</button>
-	</p>
-</form>
+            <div class="col-lg-6 mt-3">
+                <div class="portfolio-item mx-auto bg-white p-4 shadow">
+                    <h4 class="text-center text-uppercase text-secondary mb-0">Pas encore inscrit ?<br />Tu y es presque ...</h4>
+                            <!-- Icon Divider-->
+                    <div class="divider-custom">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><i class="fas fa-user-plus"></i></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <form method="post" action="index.php" class="was-validated">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Pseudo</label>
+                                <input class="form-control" name="new_login_name" type="text" placeholder="Un pseudo qui te ressemble" required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Mot de passe</label>
+                                <input type="password" class="form-control" name="new_password_1" placeholder="Un mot de passe sûr" required />
+                                <p class="help-block text-info">Attention : par sécurité, le mot de passe doit être composé d'entre 8 et 16 caractères et contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Mot de passe</label>
+                                <input type="password" class="form-control" name="new_password_2" placeholder="Le même mot de passe" required />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Email</label>
+                                <input class="form-control" name="new_email" type="email" placeholder="Ton email de contact" required />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group text-center"><button class="btn btn-info btn-l" id="sendMessageButton" type="submit">Valider</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php $content = ob_get_clean(); ?>
 

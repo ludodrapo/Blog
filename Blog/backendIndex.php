@@ -2,7 +2,6 @@
 
 session_start();
 
-
 require('controller/backend/backendController.php');
 
 try
@@ -37,7 +36,7 @@ try
 				addNewPost(
 					strip_tags($_POST['title']),
 					strip_tags($_POST['lead']),
-					strip_tags($_POST['content']),
+					($_POST['content']),
 					strip_tags($_POST['category'])
 				);
 			}
@@ -70,7 +69,7 @@ try
 				modifyPost(
 					strip_tags($_POST['title']),
 					strip_tags($_POST['lead']),
-					strip_tags($_POST['content']),
+					$_POST['content'],
 					strip_tags($_POST['category']),
 					strip_tags($_POST['post_id'])
 				);
@@ -150,7 +149,7 @@ try
 
 	else
 	{		
-		require('views/backend/backendHomepage.php');
+		fillBackendHomepage();
 	}
 
 }

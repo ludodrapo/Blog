@@ -7,7 +7,7 @@ class UsersManager extends Manager
 	public function listAllUsers()
 	{
 		$db = $this->dbConnect();
-		$listed_all_users = $db->query('SELECT user_id, login_name, email, is_active, DATE_FORMAT(registration_date, "%d/%m/%Y") AS registration_date FROM users WHERE profile = "subscriber" ORDER BY login_name');
+		$listed_all_users = $db->query('SELECT user_id, login_name, email, is_active, DATE_FORMAT(registration_date, "%d/%m/%Y") AS registration_date FROM users WHERE profile = "subscriber" ORDER BY is_active');
 
 		return $listed_all_users;
 	}

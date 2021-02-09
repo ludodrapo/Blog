@@ -1,0 +1,29 @@
+/*
+modified classes from Freelancer template to adjust colors for the blog
+*/
+.portfolio .portfolio-item .portfolio-item-caption {
+	background-color: rgba(23, 162, 184, 0.9);
+}
+
+.portfolio .portfolio-item .portfolio-item-caption:hover {
+	opacity: 0.6;
+}
+
+.form-control {
+	color: black;
+}
+
+.copyright {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+    color: #fff;
+    background: #17a2b8;
+  }
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+    color: #fff;
+    background: #17a2b8;
+  }
