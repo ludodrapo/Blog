@@ -7,7 +7,7 @@
 <!-- login form -->
         <div class="row justify-content-center">
             <div class="col-lg-6 mt-3 mb-5">
-                <div class="portfolio-item mx-auto bg-white p-4 shadow">
+                <div class="portfolio-item mx-auto bg-white p-4 shadow rounded">
                     <h4 class="text-center text-uppercase text-secondary">Déjà membre ?<br />Tu peux te connecter : </h4>
             <!-- Icon Divider-->
                     <div class="divider-custom">
@@ -42,7 +42,7 @@
     <!-- sign in form -->
 
             <div class="col-lg-6 mt-3">
-                <div class="portfolio-item mx-auto bg-white p-4 shadow">
+                <div class="portfolio-item mx-auto bg-white p-4 shadow rounded">
                     <h4 class="text-center text-uppercase text-secondary mb-0">Pas encore inscrit ?<br />Tu y es presque ...</h4>
                             <!-- Icon Divider-->
                     <div class="divider-custom">

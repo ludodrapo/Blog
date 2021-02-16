@@ -211,13 +211,43 @@ function fillBackendHomepage()
 	require('views/backend/backendHomepage.php');
 }
 
+  ////////////
+ // UPLOAD //
+////////////
 
+function uploadImage()
+{
+	$target_dir = "/Users/ludo/Sites/localhost/coursphp/Blog/public/img/uploads/";
+	$target_file = $target_dir . basename($_FILES['image_to_upload']['name']);
+	$image_data = pathinfo($_FILES['image_to_upload']['name']);
+	$image_type = $image_data['extension'];
+	$extensions_ok = array('jpeg','jpg','png','gif');
 
-
-
-
-
-
+	if (file_exists($target_file))
+	{
+		throw new Exception("Un fichier portant le même nom existe déjà, merci de renommer le fichier avant de le télécharger.", 1);
+	}
+	elseif ($_FILES['image_to_upload']['size'] > 500000)
+	{
+		throw new Exception("La taille du fichier dépasse les 5 Mo et ne peut donc être transféré.", 1);
+	}
+	elseif (!in_array($image_type, $extensions_ok))
+	{
+		throw new Exception("Les seuls types d'images autorisés sont : jpeg, jpg, png et gif.", 1);
+	}
+	else
+	{
+		if (move_uploaded_file($_FILES['image_to_upload']['tmp_name'], $target_file))
+		{
+			$congrats_message = "Tout a bien fonctionné et le visuel peut maintenant être inséré. Attention, son nom de fichier est :<br />" . $_FILES['image_to_upload']['name'];
+            require('views/backend/backendCongrats.php');
+		}
+		else
+		{
+			throw new Exception("Une erreur est survenue et le fichier n'a pas pu être sauvegardé.", 1);
+		}
+	}
+}
 
 
 
