@@ -26,16 +26,16 @@ while ($post = $listed_all_posts->fetch())
 ?>
             <div class="col-md-6 col-xl-4 mb-5">
             	<div class="mx-auto shadow">
-            		<div class="p-3">
+            		<div class="equal-height-400 p-3">
                         <p>
                             <h4><?=htmlspecialchars($post['title'])?></h4>
                         </p>
                         <p>
                             <em><?= htmlspecialchars($post['lead'])?></em>
                         </p>
-                        <p>
-                            <?= substr($post['content'], 0, 200) ?> ...
-            			</p>
+                        <div id="tiny-content">
+                            <?= substr(htmlspecialchars_decode($post['content']), 0, 150) ?> ...
+            			</div>
             		</div>
                     <div class="container">
             	        <div class="row justify-content-center">

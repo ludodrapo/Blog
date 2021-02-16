@@ -10,7 +10,6 @@ require_once('models/frontend/frontendUsersManager.php');
 // POSTS FUNCTIONS //
 ////////////////////
 
-// $PostManager = new PostsManager();
 
 function displayLastPosts()
 {

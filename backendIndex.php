@@ -42,7 +42,7 @@ try
 			}
 			else
 			{
-				throw new Exception("Désolé, il manque des éléments nécessaires à l'enregistrement de l'article.", 1);
+				throw new Exception("l manque des éléments nécessaires à l'enregistrement de l'article.", 1);
 			}
 		}
 		elseif ($_GET['action'] == 'fillUpdatePostPage')
@@ -69,7 +69,7 @@ try
 				modifyPost(
 					strip_tags($_POST['title']),
 					strip_tags($_POST['lead']),
-					$_POST['content'],
+					htmlspecialchars($_POST['content']),
 					strip_tags($_POST['category']),
 					strip_tags($_POST['post_id'])
 				);
@@ -145,6 +145,17 @@ try
 				throw new Exception("Nous n'avons pas reconnu l'idendtifiant de l'utilisateur à réactiver.", 1);
 			}
 		}
+		elseif ($_GET['action'] == 'uploadImage')
+		{
+			if (!isset($_FILES['image_to_upload']) || empty($_FILES['image_to_upload']))
+			{
+				throw new Exception("Aucune image n'a été sélectionnée", 1);
+			}
+			else
+			{
+				uploadImage($_FILES['image_to_upload']);
+			}
+		}
 	}
 
 	else
@@ -155,5 +166,6 @@ try
 }
 catch(Exception $e)
 {
-	echo 'Erreur : ' . $e->getMessage();
+	$bug_message = $e->getMessage();
+	require('views/backend/backendBugMessage.php');
 }

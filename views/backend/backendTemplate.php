@@ -71,6 +71,7 @@
         <script src="public/js/scripts.js"></script>
         <!-- script local tinymce -->
         <script type="text/javascript" src="public/js/tinymce.js"></script>
+        <script type="text/javascript" src="public/js/myscript.js"></script>
 
 
 	</body>

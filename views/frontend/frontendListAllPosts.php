@@ -30,7 +30,7 @@ while ($post = $listed_all_posts->fetch())
                 <div class="portfolio-item mx-auto shadow">
                     <a href="index.php?action=displayPostAndComments&amp;post_id=<?=$post['post_id']?>">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                    	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-ellipsis-h fa-5x"></i></div>
+                    	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-5x"></i></div>
                         </div>
                     </a>
                     <div class="p-3">

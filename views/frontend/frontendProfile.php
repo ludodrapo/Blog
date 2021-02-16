@@ -7,15 +7,17 @@
         <div class="row justify-content-center pt-lg-5 pt-3">
             <div class="col-lg-8">
 				<h2 class="text-secondary text-center text-uppercase mb-3">Profil</h2>
-				<div class="divider-custom">
+				<div class="divider-custom mb-5">
 		            <div class="divider-custom-line"></div>
 		            <div class="divider-custom-icon"><i class="fas fa-user-circle"></i></div>
 		            <div class="divider-custom-line"></div>
 		        </div>
 
 <?php
-if ($count['comments_count'] > 0)
+if ($_SESSION['profile'] != 'administrator')
 {
+    if ($count['comments_count'] > 0)
+    {
 ?>
 				<div class="bg-white mt-3 mb-5 p-4 shadow rounded">
 					<h3 class="text-secondary mb-3">Le blog et toi</h3>
@@ -25,9 +27,9 @@ if ($count['comments_count'] > 0)
 					</p>
 				</div>
 <?php
-}
-else
-{
+    }
+    else
+    {
 ?>
 				<div class="bg-white mt-3 mb-5 p-4 shadow rounded">
 					<h3 class="text-secondary mb-3">Le blog et toi</h3>
@@ -39,6 +41,7 @@ else
 				
 
 <?php
+    }
 }
 ?>
 				<div class="bg-white my-3 p-4 shadow rounded">

@@ -34,6 +34,10 @@ try
 		{
 			require('views/frontend/frontendGoToAdmin.php');
 		}
+		elseif ($_GET['action'] == 'goToResume')
+		{
+			require('views/frontend/resume.php');
+		}
 		elseif ($_GET['action'] == 'logout')
 		{
 			logout();
@@ -125,6 +129,7 @@ try
 				throw new Exception("Il manque des données nécessaires à l'envoi de ce mail.", 1);
 			}
 		}
+		
   ///////////////////////
  // ACCESSING ACTIONS //
 ///////////////////////
