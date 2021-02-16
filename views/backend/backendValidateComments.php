@@ -19,9 +19,9 @@
 while ($comment = $all_awaiting_comments->fetch())
 {
 ?>
-            <div class="col-md-6 col-lg-4 mb-5">
+            <div class="col-lg-6 mb-5">
             	<div class="mx-auto shadow">
-            		<div class="p-3">
+            		<div class="equal-height-200 p-3">
             			<p>
             				Le <?=htmlspecialchars($comment['date'])?> à <?=htmlspecialchars($comment['time'])?>, <strong><?=htmlspecialchars($comment['login_name'])?></strong> à propos de l'article intitulé <strong>"<?=htmlspecialchars($comment['title'])?>"</strong> :
                         </p>
@@ -30,7 +30,7 @@ while ($comment = $all_awaiting_comments->fetch())
                         </p>
                         <div class="container">
                             <div class="row p-3">
-                                <div class="col-6 text-center">
+                                <div class="col-6 justify-content-center text-center">
                                     <a class="btn btn-info" href="#" data-toggle="modal" data-target="#validateComment">Valider</a>
                                 </div>
                                 <div id="validateComment" class="modal">
@@ -54,7 +54,7 @@ while ($comment = $all_awaiting_comments->fetch())
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 text-center">
+                                <div class="col-6 justify-content-center text-center">
                                     <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteComment">Supprimer</a>
                                 </div>
                                 <div id="deleteComment" class="modal">

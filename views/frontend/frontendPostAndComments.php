@@ -13,10 +13,9 @@
 				<p>
 					<strong><?=nl2br(htmlspecialchars($post_details['lead']))?></strong>
 				</p>
-                <p class="mb-5">
-                	<!-- WARNING : no protection against XSS here -->
-                    <?=$post_details['content']?><br />
-                </p>
+                <div id="tiny-content" class="mb-5">
+                    <?=htmlspecialchars_decode($post_details['content'])?><br />
+                </div>
             </div>
 
 			<div class="col-lg-10 mt-3">
@@ -45,8 +44,8 @@ if(isset($_SESSION['login_name']))
                 <form method="post" action="index.php?action=addComment&amp;post_id=<?=$post_details['post_id']?>">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pt-3">
-                            <label>Ton commentaire ... bienveillant bien sûr !</label>
-                            <textarea class="form-control" name="comment" rows="5" placeholder="Ton commentaire ... bienveillant bien sûr !" required ></textarea>
+                            <label>Ton commentaire ...</label>
+                            <textarea class="form-control" name="comment" rows="5" placeholder="Ton commentaire ..." required ></textarea>
                         </div>
                     </div>
                     <br />
@@ -55,7 +54,6 @@ if(isset($_SESSION['login_name']))
                     </div>
                 </form>
             </div>
-
 <?php
 }
 else

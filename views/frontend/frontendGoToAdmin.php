@@ -18,8 +18,8 @@
                 <form method="post" action="index.php?action=accessAdmin" class="was-validated">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
-                            <label>Mot de passe admin</label>
-                            <input type="password" class="form-control" name="password" placeholder="Mot de passe admin" required />
+                            <label>MDP admin</label>
+                            <input type="password" class="form-control" name="password" placeholder="MDP admin" required />
                         </div>
                     </div>
                     <br />

@@ -2,6 +2,7 @@
 
 tinymce.init({
     selector: '#editor',
+    branding: false,
     plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
     toolbar_mode: 'floating',
     min_height: 400,           

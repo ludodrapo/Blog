@@ -41,11 +41,11 @@ while ($post = $listed_last_posts->fetch())
 ?>
             <!-- Post -->
         
-            <div class="col-md-6 col-xl-4 bg-light mb-5">
-                <div class="portfolio-item mx-auto shadow">
+            <div class="col-md-6 col-xl-4 mb-5">
+                <div class="portfolio-item mx-auto bg-white shadow">
                     <a href="index.php?action=displayPostAndComments&amp;post_id=<?=$post['post_id']?>">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                    	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                    	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-5x"></i></div>
                         </div>
                     </a>
                     <div class="p-3">
@@ -90,17 +90,17 @@ $listed_last_posts->closeCursor();
         <div class="row">
             <div class="col-lg-5 ml-auto">
             	<p class="lead">
-            		Ex-retail manager et futur développeur web, passionné d'images, de mots et de notes. Je suis rigoureux, autonome, créatif, réactif, pédagogue et doté d'un très bon relationnel.
+            		Ex-retail manager et futur développeur web, passionné d'images, de mots et de notes ... Consciencieux, autonome, créatif, réactif, pédagogue et doté d'un très bon relationnel.
             	</p>
             </div>
             <div class="col-lg-5 mr-auto">
             	<p class="lead">
-            		Avec Ludo dans votre équipe, vous êtes certain d'avoir quelqu'un sur qui vous pourrez toujours compter, facile à manager et dont l'enthousiasme communicatif illustre l'adage : "On peut être sérieux sans se prendre au sérieux". 
+            		Avec Ludo dans votre équipe, vous êtes certain d'avoir quelqu'un sur qui vous pourrez toujours compter et dont l'enthousiasme communicatif illustre l'adage : "On peut être sérieux sans se prendre au sérieux". 
             	</p>
             </div>
         </div>
         <div class="text-center mt-4">
-            <a class="btn btn-xl btn-outline-light" href="index.php?">Tout savoir sur Ludo</a>
+            <a class="btn btn-xl btn-outline-light" href="index.php?action=goToResume">Tout le CV en détail ...</a>
         </div>
     </div>
 </section>

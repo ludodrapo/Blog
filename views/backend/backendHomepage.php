@@ -12,8 +12,8 @@
         </div>
 
         <div class="row justify-content-center mt-2 mt-lg-5">
-            <div class="col-lg-6 mb-5">
-                <div class="mx-auto shadow">
+            <div class="col-lg-8 mb-5">
+                <div class="mx-auto bg-white shadow">
                     <div class="p-3 text-center">
                         <p>
                             Il y a actuellement :
@@ -28,9 +28,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 mb-5">
-                <div class="mx-auto shadow">
-                    <div class="mx-auto shadow p-3">
+            <div class="col-lg-8 mb-5">
+                <div class="mx-auto bg-white shadow">
+                    <div class="p-3">
                         <h5 class="text-center">Classement des articles par popularité</h5>
                         <table class="table table-striped">
                             <thead>
