@@ -44,7 +44,7 @@
         </nav>
 
 
-        <?= $content ?>
+        <?=$content?>
 
 
         <footer class="copyright">

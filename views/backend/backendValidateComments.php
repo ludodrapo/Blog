@@ -45,10 +45,10 @@ while ($comment = $all_awaiting_comments->fetch())
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
-                                                    <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
+                                                    <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=validateComment&amp;comment_id=<?=$comment['comment_id']?>">Je valide</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=validateComment&amp;comment_id=<?=$comment['comment_id']?>">Je valide</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,10 +69,10 @@ while ($comment = $all_awaiting_comments->fetch())
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
-                                                    <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
+                                                    <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=deleteComment&amp;comment_id=<?=$comment['comment_id']?>">Compris</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=deleteComment&amp;comment_id=<?=$comment['comment_id']?>">Compris</a>
                                                 </div>
                                             </div>
                                         </div>

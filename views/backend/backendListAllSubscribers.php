@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
 
 <?php
-while ($user = $listed_all_users->fetch())
+while ($user = $listed_users->fetch())
 {
 ?>
             <div class="col-md-6 col-lg-4 mb-5">
@@ -44,10 +44,10 @@ while ($user = $listed_all_users->fetch())
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
-                                                    <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
+                                                    <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=blockUser&amp;user_id=<?=$user['user_id']?>">J'assume</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=blockUser&amp;user_id=<?=$user['user_id']?>">J'assume</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,10 +73,10 @@ while ($user = $listed_all_users->fetch())
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
-                                                    <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
+                                                    <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=authorizeUser&amp;user_id=<?=$user['user_id']?>">Compris</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=authorizeUser&amp;user_id=<?=$user['user_id']?>">Compris</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@ while ($user = $listed_all_users->fetch())
             </div>
 <?php
 }
-$listed_all_users->closeCursor();
+$listed_users->closeCursor();
 ?>
 
         </div>

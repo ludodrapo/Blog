@@ -6,39 +6,39 @@ require('controller/frontend/frontendController.php');
 
 try
 {
-	if (isset($_GET['action']))
+	if (isset($_GET['action']) && !empty($_GET['action']))
 	{
 
   //////////////////////////////
  // DISPLAYING VIEWS ACTIONS //
 //////////////////////////////
 
-		if ($_GET['action'] == 'displayAllPosts')
+		if ($_GET['action'] === 'displayAllPosts')
 		{
 			displayAllPosts();
 		}
-        elseif ($_GET['action'] == 'goToLogin')
+        elseif ($_GET['action'] === 'goToLogin')
 		{
 			require('views/frontend/frontendLogin.php');
 		}
 
-		elseif ($_GET['action'] == 'goToUpdateEmail')
+		elseif ($_GET['action'] === 'goToUpdateEmail')
 		{
 			require('views/frontend/frontendUpdateEmail.php');
 		}
-		elseif ($_GET['action'] == 'goToUpdatePassword')
+		elseif ($_GET['action'] === 'goToUpdatePassword')
 		{
 			require('views/frontend/frontendUpdatePassword.php');
 		}
-		elseif ($_GET['action'] == 'goToAdmin')
+		elseif ($_GET['action'] === 'goToAdmin')
 		{
 			require('views/frontend/frontendGoToAdmin.php');
 		}
-		elseif ($_GET['action'] == 'goToResume')
+		elseif ($_GET['action'] === 'goToResume')
 		{
 			require('views/frontend/resume.php');
 		}
-		elseif ($_GET['action'] == 'logout')
+		elseif ($_GET['action'] === 'logout')
 		{
 			logout();
 		}
@@ -47,7 +47,7 @@ try
  // FILLING VIEWS WITH DATA ACTIONS //
 /////////////////////////////////////
 
-		elseif ($_GET['action'] == 'displayPostAndComments')
+		elseif ($_GET['action'] === 'displayPostAndComments')
 		{
 			if (!isset($_GET['post_id']))
 			{
@@ -59,7 +59,7 @@ try
 			}
 		}
 
-		elseif ($_GET['action'] == 'profile')
+		elseif ($_GET['action'] === 'profile')
 		{
 			if (!isset($_SESSION['user_id']))
 			{
@@ -75,7 +75,7 @@ try
  // POSTING ACTIONS //
 /////////////////////
 
-		elseif ($_GET['action'] == 'addComment')
+		elseif ($_GET['action'] === 'addComment')
 		{
 			if (
 				!isset($_GET['post_id']) || empty($_GET['post_id']) ||
@@ -93,7 +93,7 @@ try
 		}
 
 		//To send contact mail if user is logged in
-		elseif ($_GET['action'] == 'contactMail' && isset($_SESSION['login_name']))
+		elseif ($_GET['action'] === 'contactMail' && isset($_SESSION['login_name']))
 		{
 			if (isset($_POST['message']) && !empty($_POST['message']))
 			{
@@ -110,7 +110,7 @@ try
 		}
 
 		//To send contact mail if no session is started
-		elseif ($_GET['action'] == 'contactMail' && !isset($_SESSION['login_name']))
+		elseif ($_GET['action'] === 'contactMail' && !isset($_SESSION['login_name']))
 		{
 			if (
 				isset($_POST['name']) && !empty($_POST['name']) &&
@@ -134,7 +134,7 @@ try
  // ACCESSING ACTIONS //
 ///////////////////////
 
-		elseif ($_GET['action'] == 'login')
+		elseif ($_GET['action'] === 'login')
 		{
 		    if (
 		    	isset($_POST['login_name']) && isset($_POST['password']) &&
@@ -152,7 +152,7 @@ try
 			}
 		}
 
-		elseif ($_GET['action'] == 'signin')
+		elseif ($_GET['action'] === 'signin')
 		{
 			if (
 				isset($_POST['new_login_name']) && !empty($_POST['new_login_name']) &&
@@ -174,7 +174,7 @@ try
 			}
 		}
 
-		elseif ($_GET['action'] == 'accessAdmin')
+		elseif ($_GET['action'] === 'accessAdmin')
 		{
 			if (isset($_POST['password']) && $_SESSION['profile'] == 'administrator')
 			{	
@@ -186,7 +186,7 @@ try
  // USERS DATA ACTIONS //
 ////////////////////////
 
-		elseif ($_GET['action'] == 'updateEmail')
+		elseif ($_GET['action'] === 'updateEmail')
 		{
 			if (isset($_POST['new_email']) && isset($_POST['password']))
 			{
@@ -201,7 +201,7 @@ try
 			}
 		}
 
-		elseif ($_GET['action'] == 'updatePassword')
+		elseif ($_GET['action'] === 'updatePassword')
 		{
 			if (
 				isset($_POST['new_password_1']) && !empty($_POST['new_password_1']) &&

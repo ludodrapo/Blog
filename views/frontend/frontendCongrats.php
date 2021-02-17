@@ -12,7 +12,7 @@
 		            <div class="divider-custom-icon"><i class="fas fa-thumbs-up"></i></div>
 		            <div class="divider-custom-line"></div>
 		        </div>
-		        <div class="bg-light shadow text-center my-5 py-5">
+		        <div class="bg-white shadow text-center my-5 py-5">
 					<p>
 						Ton compte a bien été créé, félicitations <?=htmlspecialchars($_SESSION['login_name'])?>.<br />
 						Nous sommes super contents de t'accueillir à bord.<br />
