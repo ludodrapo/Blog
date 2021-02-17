@@ -14,9 +14,9 @@ require_once('models/frontend/frontendUsersManager.php');
 function displayLastPosts()
 {
 	$last_posts = new PostsManager();
-	$listed_last_posts = $last_posts->listLastPosts();
+	$last_posts = $last_posts->listLastPosts();
 
-	require('views/frontend/frontendHomepage.php');
+	require 'views/frontend/frontendHomepage.php';
 }
 
 function displayAllPosts()
