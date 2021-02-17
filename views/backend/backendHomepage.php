@@ -18,7 +18,7 @@
                         <p>
                             Il y a actuellement :
                         </p>
-                        <a class="btn btn-info btn-xl mb-3" href="backendIndex.php?action=displayAwaitingComments"><i class="fas fa-comment"></i> <?=htmlspecialchars($awaiting_comments['count'])?></a>
+                        <a class="btn btn-info btn-xl mb-3" href="backendIndex.php?action=displayAwaitingComments"><i class="fas fa-comment"></i> <?=strip_tags($awaiting_comments['count'])?></a>
                         <p>
                             <strong>commentaires</strong>
                         </p>
@@ -45,8 +45,8 @@ while ($post = $posts_ranking->fetch())
 {
 ?>
                                 <tr>
-                                    <td><?=htmlspecialchars($post['title'])?></td>
-                                    <td><?=htmlspecialchars($post['comments_count'])?></td>
+                                    <td><?=strip_tags($post['title'])?></td>
+                                    <td><?=strip_tags($post['comments_count'])?></td>
                                 </tr>
 <?php
 }
@@ -65,4 +65,4 @@ $posts_ranking->closeCursor();
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('backendTemplate.php'); ?>
+<?php require 'backendTemplate.php'; ?>
