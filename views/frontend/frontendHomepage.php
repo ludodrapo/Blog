@@ -32,7 +32,7 @@
         <div class="row justify-content-center">
 <?php
 
-while ($post = $listed_last_posts->fetch())
+while ($post = $last_posts->fetch())
 {
 	if (empty($post['comments_count']))
 	{
@@ -69,7 +69,7 @@ while ($post = $listed_last_posts->fetch())
 
 <?php
 }
-$listed_last_posts->closeCursor();
+$last_posts->closeCursor();
 ?>
 
         </div>
