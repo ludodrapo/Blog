@@ -31,4 +31,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/backend/backendTemplate.php'); ?>
+<?php require 'views/backend/backendTemplate.php'; ?>

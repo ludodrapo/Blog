@@ -40,7 +40,7 @@ while ($post = $listed_all_posts->fetch())
                     <div class="container">
             	        <div class="row justify-content-center">
                             <div class="col-6 text-center mb-3">
-                                <a class="btn btn-l btn-info" href="backendIndex.php?action=fillUpdatePostPage&amp;post_id=<?=$post['post_id']?>">Modifier</a>
+                                <a class="btn btn-l btn-info" href="backendIndex.php?action=fillUpdatePostPage&amp;post_id=<?=strip_tags($post['post_id'])?>">Modifier</a>
                             </div>
 <?php
 if ($post['is_ok'] == 1)
@@ -49,7 +49,7 @@ if ($post['is_ok'] == 1)
                             <div class="col-6 text-center mb-3">
 	                            <a class="btn btn-l btn-danger" href="#" data-toggle="modal" data-target="#deactivatePost">Désactiver</a>
                                 <div id="deactivatePost" class="modal">
-                                    <div class="modal-dialog modal-sm modal-dialog-centered">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title">Sûr de toi ?</h3>
@@ -63,7 +63,7 @@ if ($post['is_ok'] == 1)
                                                     <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=deactivatePost&amp;post_id=<?=$post['post_id']?>">J'assume</a>
+                                                    <a class="btn btn-danger" href="backendIndex.php?action=deactivatePost&amp;post_id=<?=strip_tags($post['post_id'])?>">J'assume</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@ elseif ($post['is_ok'] == 0)
                             <div class="col-6 text-center mb-3">
                                 <a class="btn btn-l btn-info" href="#" data-toggle="modal" data-target="#activatePost">Activer</a>
                                 <div id="activatePost" class="modal">
-                                    <div class="modal-dialog modal-sm modal-dialog-centered">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title">Sûr de toi ?</h3>
@@ -92,7 +92,7 @@ elseif ($post['is_ok'] == 0)
                                                     <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=activatePost&amp;post_id=<?=$post['post_id']?>">J'assume</a>
+                                                    <a class="btn btn-danger" href="backendIndex.php?action=activatePost&amp;post_id=<?=strip_tags($post['post_id'])?>">J'assume</a>
                                                 </div>
                                             </div>
                                         </div>

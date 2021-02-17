@@ -34,7 +34,7 @@ while ($comment = $all_awaiting_comments->fetch())
                                     <a class="btn btn-info" href="#" data-toggle="modal" data-target="#validateComment">Valider</a>
                                 </div>
                                 <div id="validateComment" class="modal">
-                                    <div class="modal-dialog modal-sm modal-dialog-centered">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title">Sûr de toi ?</h3>
@@ -45,10 +45,10 @@ while ($comment = $all_awaiting_comments->fetch())
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
-                                                    <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
+                                                    <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=validateComment&amp;comment_id=<?=$comment['comment_id']?>">Je valide</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=validateComment&amp;comment_id=<?=strip_tags($comment['comment_id'])?>">Je valide</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@ while ($comment = $all_awaiting_comments->fetch())
                                     <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#deleteComment">Supprimer</a>
                                 </div>
                                 <div id="deleteComment" class="modal">
-                                    <div class="modal-dialog modal-sm modal-dialog-centered">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h3 class="modal-title">Sûr de toi ?</h3>
@@ -69,10 +69,10 @@ while ($comment = $all_awaiting_comments->fetch())
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
-                                                    <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
+                                                    <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=deleteComment&amp;comment_id=<?=$comment['comment_id']?>">Compris</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=deleteComment&amp;comment_id=<?=strip_tags($comment['comment_id'])?>">Compris</a>
                                                 </div>
                                             </div>
                                         </div>

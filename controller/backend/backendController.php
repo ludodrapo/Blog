@@ -2,9 +2,9 @@
 
 session_start();
 
-require_once('models/backend/backendPostsManager.php');
-require_once('models/backend/backendCommentsManager.php');
-require_once('models/backend/backendUsersManager.php');
+require_once 'models/backend/backendPostsManager.php';
+require_once 'models/backend/backendCommentsManager.php';
+require_once 'models/backend/backendUsersManager.php';
 
 //////////////////////
 // USERS FUNCTIONS //
@@ -13,9 +13,9 @@ require_once('models/backend/backendUsersManager.php');
 function displayAllSubscribers()
 {
 	$users = new UsersManager();
-	$listed_all_users = $users->listAllUsers();
+	$listed_users = $users->listAllUsers();
 
-	require('views/backend/backendListAllSubscribers.php');
+	require 'views/backend/backendListAllSubscribers.php';
 }
 
 function blockUser($user_id)
@@ -29,18 +29,16 @@ function blockUser($user_id)
 	{
 		throw new Exception("Impossible de désactiver ce compte.", 1);
 	}
-	else
-	{
-		$subject = "Ton compte \"abonné\" sur le blog de Ludo, $login_name";
-		$body = "Bonjour $login_name,\n\nNous te prévenons par ce mail que ton compte \"abonné\" à notre blog a été bloqué.\n\nSi tu penses qu'il s'agit d'une erreur, n'hésite pas à nous contacter via le formulaire de contact en bas de page du site.\n\nBonne journée,\n\nLudo";
-		$headers = "From: noreply@ludodrapo.com\n";
 
-		if(!mail($email, $subject, $body, $headers))
-		{
-			throw new Exception("Impossible d'envoyer le mail de suspension de compte.", 1);
-		}
-		displayAllSubscribers();
+	$subject = "Ton compte \"abonné\" sur le blog de Ludo, $login_name";
+	$body = "Bonjour $login_name,\n\nNous tenions à t'avertir par ce mail que ton compte \"abonné\" à notre blog a été bloqué.\n\nSi tu penses qu'il s'agit d'une erreur, n'hésite pas à nous contacter via le formulaire de contact en bas de page du site.\n\nBonne journée,\n\nLudo";
+	$headers = "From: noreply@ludodrapo.com\n";
+
+	if(!mail($email, $subject, $body, $headers))
+	{
+		throw new Exception("Impossible d'envoyer le mail de suspension de compte.", 1);
 	}
+	displayAllSubscribers();
 }
 
 function authorizeUser($user_id)
@@ -54,18 +52,16 @@ function authorizeUser($user_id)
 	{
 		throw new Exception("Impossible de réactiver ce compte.", 1);	
 	}
-	else
-	{
-		$subject = "Ton compte \"abonné\" sur le blog de Ludo, $login_name";
-		$body = "Bonjour $login_name,\n\nBonne nouvelle : ton compte a été réactivé !\n\nWelcome back comme ils disent de l'autre côté de l'océan ...\n\nA très vite sur le blog.\n\nLudo.";
-		$headers = "From: noreply@ludodrapo.com\n";
 
-		if(!mail($email, $subject, $body, $headers))
-		{
-			throw new Exception("Impossible d'envoyer le mail de réactivation de compte.", 1);
-		}
-		displayAllSubscribers();
+	$subject = "Ton compte \"abonné\" sur le blog de Ludo, $login_name";
+	$body = "Bonjour $login_name,\n\nBonne nouvelle : ton compte a été réactivé !\n\nWelcome back comme ils disent de l'autre côté de l'océan ...\n\nA très vite sur le blog.\n\nLudo.";
+	$headers = "From: noreply@ludodrapo.com\n";
+
+	if(!mail($email, $subject, $body, $headers))
+	{
+		throw new Exception("Impossible d'envoyer le mail de réactivation de compte.", 1);
 	}
+	displayAllSubscribers();
 }
 
 //////////////////////
@@ -76,7 +72,7 @@ function displayAllPosts()
 {
 	$all_posts = new PostsManager();
 	$listed_all_posts = $all_posts->listAllPosts();
-	require('views/backend/backendListAllPosts.php');
+	require 'views/backend/backendListAllPosts.php';
 }
 
 function addNewPost($title, $lead, $content, $category)
@@ -87,17 +83,14 @@ function addNewPost($title, $lead, $content, $category)
 	{
 		throw new Exception("Une erreur est survenue. Impossible d'enregistrer l'article.");
 	}
-	else
-	{
-		displayAllPosts();
-	}
+	displayAllPosts();
 }
 
 function fillUpdatePostPage($post_id)
 {
 	$post = new PostsManager();
 	$post_details = $post->getPostDetails($post_id);
-	require('views/backend/backendUpdatePost.php');
+	require 'views/backend/backendUpdatePost.php';
 }
 
 function modifyPost($title, $lead, $content, $category, $post_id)
@@ -108,10 +101,7 @@ function modifyPost($title, $lead, $content, $category, $post_id)
 	{
 		throw new Exception("Une erreur est survenue. Impossible de modifer l'article.", 1);
 	}
-	else
-	{
-		displayAllPosts();
-	}
+	displayAllPosts();
 }
 
 function activatePost($post_id)
@@ -122,10 +112,7 @@ function activatePost($post_id)
 	{
 		throw new Exception("Une erreur est survenue. Impossible d'activer l'article..", 1);
 	}
-	else
-	{
-		displayAllPosts();
-	}
+	displayAllPosts();
 }
 
 function deactivatePost($post_id)
@@ -136,10 +123,7 @@ function deactivatePost($post_id)
 	{
 		throw new Exception("Une erreur est survenue. Impossible de désactiver l'article.", 1);
 	}
-	else
-	{
-		displayAllPosts();
-	}
+	displayAllPosts();
 }
 
 /////////////////////////
@@ -151,7 +135,7 @@ function displayAwaitingComments()
 	$awaiting_comments = new CommentsManager();
 	$all_awaiting_comments = $awaiting_comments->getAwaitingComments();
 
-	require('views/backend/backendValidateComments.php');
+	require 'views/backend/backendValidateComments.php';
 }
 
 function validateComment($comment_id)
@@ -163,10 +147,7 @@ function validateComment($comment_id)
 	{
 		throw new Exception("Une erreur est survenue. Impossible de valider ce commentaire.", 1);
 	}
-	else
-	{
-		displayAwaitingComments();
-	}
+	displayAwaitingComments();
 }
 
 function deleteComment($comment_id)
@@ -182,19 +163,16 @@ function deleteComment($comment_id)
 	{
 		throw new Exception("Une erreur est survenue. Impossible de supprimer ce commentaire.", 1);
 	}
-	else
-	{	
-		$subject = "Ton commentaire sur le blog de Ludo, $login_name";
-		$body = "Bonjour $login_name,\nTu as laissé ce commentaire sur notre site :\n\n\"$comment\"\n\nCelui-ci n'a pas été accepté par notre modérateur et a été supprimé.\nMerci de ta compréhension,\nLudo";
-		$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
 
-		if(!mail($email, $subject, $body, $headers))
-		{
-			throw new Exception("Impossible d'envoyer le message.", 1);
-		}
-		
-		displayAwaitingComments();
+	$subject = "Ton commentaire sur le blog de Ludo, $login_name";
+	$body = "Bonjour $login_name,\nTu as laissé ce commentaire sur notre site :\n\n\"$comment\"\n\nCelui-ci n'a pas été accepté par notre modérateur et a été supprimé.\nMerci de ta compréhension,\nLudo";
+	$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+
+	if(!mail($email, $subject, $body, $headers))
+	{
+		throw new Exception("Impossible d'envoyer le message.", 1);
 	}
+	displayAwaitingComments();
 }
 
   ////////////////////////
@@ -208,7 +186,7 @@ function fillBackendHomepage()
 	$awaiting_comments = $comments->countAwaitingComments();
 	$posts_ranking = $posts->getPostsRanking();
 
-	require('views/backend/backendHomepage.php');
+	require 'views/backend/backendHomepage.php';
 }
 
   ////////////
@@ -240,7 +218,7 @@ function uploadImage()
 		if (move_uploaded_file($_FILES['image_to_upload']['tmp_name'], $target_file))
 		{
 			$congrats_message = "Tout a bien fonctionné et le visuel peut maintenant être inséré. Attention, son nom de fichier est :<br />" . $_FILES['image_to_upload']['name'];
-            require('views/backend/backendCongrats.php');
+            require 'views/backend/backendCongrats.php';
 		}
 		else
 		{
