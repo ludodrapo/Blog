@@ -31,7 +31,7 @@
                         <h4>Catégorie de l'article</h4>
                         <textarea type="text" class="form-control" name="category" required rows="1" cols="30" placeholder="En pensant à un éventuel tri plus tard ... "><?=htmlspecialchars($post_details['category'])?></textarea>
                     </div>
-                    <input type="hidden" name="post_id" value="<?=htmlspecialchars($post_details['post_id'])?>">
+                    <input type="hidden" name="post_id" value="<?=strip_tags($post_details['post_id'])?>">
                     <br />
                     <div class="text-center">
                         <button class="btn btn-l btn-info" type="submit">Enregistrer</button>

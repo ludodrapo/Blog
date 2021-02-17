@@ -43,7 +43,7 @@ while ($post = $last_posts->fetch())
         
             <div class="col-md-6 col-xl-4 mb-5">
                 <div class="portfolio-item mx-auto bg-white shadow">
-                    <a href="index.php?action=displayPostAndComments&amp;post_id=<?=$post['post_id']?>">
+                    <a href="index.php?action=displayPostAndComments&amp;post_id=<?=strip_tags($post['post_id'])?>">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                     	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-5x"></i></div>
                         </div>

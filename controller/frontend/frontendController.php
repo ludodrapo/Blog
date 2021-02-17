@@ -2,9 +2,9 @@
 
 session_start();
 
-require_once('models/frontend/frontendPostsManager.php');
-require_once('models/frontend/frontendCommentsManager.php');
-require_once('models/frontend/frontendUsersManager.php');
+require_once 'models/frontend/frontendPostsManager.php';
+require_once 'models/frontend/frontendCommentsManager.php';
+require_once 'models/frontend/frontendUsersManager.php';
 
 //////////////////////
 // POSTS FUNCTIONS //
@@ -22,9 +22,9 @@ function displayLastPosts()
 function displayAllPosts()
 {
 	$all_posts = new PostsManager();
-	$listed_all_posts = $all_posts->listAllPosts();
+	$all_posts = $all_posts->listAllPosts();
 	
-	require('views/frontend/frontendListAllPosts.php');
+	require 'views/frontend/frontendListAllPosts.php';
 }
 
 function displayPostAndComments($post_id)
@@ -32,15 +32,12 @@ function displayPostAndComments($post_id)
 	$post = new PostsManager();
 	$comments = new CommentsManager();
 	$post_details = $post->getPostDetails($post_id);
-	$all_comments = $comments->getPostComments($post_id);
+	$comments = $comments->getPostComments($post_id);
 	if (empty($post_details))
 	{
 		throw new Exception("Cet article n'existe pas (ou plus), désolé.", 1);	
 	}
-	else
-	{
-		require('views/frontend/frontendPostAndComments.php');
-	}
+	require 'views/frontend/frontendPostAndComments.php';
 }
 
 /////////////////////////
@@ -55,33 +52,28 @@ function countUserComments($user_id)
 	{
 		throw new Exception("Impossible de récupérer le nombre de commentaires.", 1);
 	}
-	else
-	{
-		require('views/frontend/frontendProfile.php');
-	}
+	require 'views/frontend/frontendProfile.php';
 }
 
 function addComment($user_id, $post_id, $comment)
 {
 	$comment_to_add = new CommentsManager();
 	$added_comment = $comment_to_add->addComment($user_id, $post_id, $comment);
+
 	if ($added_comment === false) {
 		throw new Exception("Une erreur est survenue. Impossible d'ajouter ton commentaire, désolé.", 1);
 	}
-	else
+
+	$email = "ludodrapo@gmail.com";
+	$subject = "Nouveau commentaire";
+	$body = "Un nouveau commentaire en attente de validation vient d'être laissé sur le blog :\n\n\"$comment\"\n\n";
+	$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+
+	if(!mail($email, $subject, $body, $headers))
 	{
-		$to = "ludodrapo@gmail.com";
-		$subject = "Nouveau commentaire";
-		$body = "Un nouveau commentaire en attente de validation vient d'être laissé sur le blog :\n\n\"$comment\"\n\n";
-		$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-
-		if(!mail($to, $subject, $body, $headers))
-		{
-			throw new Exception("Impossible d'avertir l'administrateur du site pour validation du commentaire.", 1);
-		}
-
-		require('views/frontend/frontendThanksComment.php');
+		throw new Exception("Impossible d'avertir l'administrateur du site pour validation du commentaire.", 1);
 	}
+	require 'views/frontend/frontendThanksComment.php';
 }
 
 //////////////////////
@@ -91,7 +83,6 @@ function addComment($user_id, $post_id, $comment)
 function addNewUser($new_login_name, $new_password_1, $new_password_2, $new_email)
 {
 	$new_user = new UsersManager();
-	//first, we check if the login already exists with the function above
 	$password_data = $new_user->getUserPassword($new_login_name);
 
 	if (!empty($password_data))
@@ -126,7 +117,7 @@ function addNewUser($new_login_name, $new_password_1, $new_password_2, $new_emai
 		else
 		{
 			
-			require('views/frontend/frontendCongrats.php');
+			require 'views/frontend/frontendCongrats.php';
 		}
 	}
 }
@@ -246,7 +237,7 @@ function logout()
 {
 	session_unset();
 	session_destroy();
-	require('views/frontend/frontendLogin.php');
+	require 'views/frontend/frontendLogin.php' ;
 }
 
 function goToAdmin($password)
@@ -260,10 +251,8 @@ function goToAdmin($password)
 	{
 		throw new Exception("Le mot de passe saisi n'est pas celui associé au compte administrateur. L'accés à la partie administration n'est donc pas autorisé.", 1);
 	}
-	else
-	{	
-		header('location:backendIndex.php');
-	}
+		
+	header('location:backendIndex.php');
 }
 
 /////////////////////
@@ -279,23 +268,18 @@ function contactMail($name, $email, $message)
 	{
 		throw new Exception("L'adresse mail renseignée n'est pas valide.", 1);
 	}
-	else
-	{
-		$to = "ludodrapo@gmail.com";
-		$subject = "Blog Contact Form : $name";
-		$body = "On a reçu un message depuis le formulaire du blog.\n\n"."Voici le message :\n$message";
-		$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-		$headers .= "Reply-To: $email";
 
-		if(!mail($to, $subject, $body, $headers))
-		{
-			throw new Exception("Impossible d'envoyer le message.", 1);
-		}
-		else
-		{
-			require('views/frontend/frontendThanksMail.php');
-		}
+	$email = "ludodrapo@gmail.com";
+	$subject = "Blog Contact Form : $name";
+	$body = "On a reçu un message depuis le formulaire du blog.\n\n"."Voici le message :\n$message";
+	$headers = "From: noreply@ludodrapo.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
+	$headers .= "Reply-To: $email";
+
+	if(!mail($email, $subject, $body, $headers))
+	{
+		throw new Exception("Impossible d'envoyer le message.", 1);
 	}
+	require 'views/frontend/frontendThanksMail.php';
 }
 
 

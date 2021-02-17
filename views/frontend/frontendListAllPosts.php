@@ -17,7 +17,7 @@
         <div class="row justify-content-center">
 
 <?php
-while ($post = $listed_all_posts->fetch())
+while ($post = $all_posts->fetch())
 {
 	if (empty($post['comments_count']))
 	{
@@ -27,8 +27,8 @@ while ($post = $listed_all_posts->fetch())
             <!-- Post -->
         
             <div class="col-md-6 col-xl-4 mb-5">
-                <div class="portfolio-item mx-auto shadow">
-                    <a href="index.php?action=displayPostAndComments&amp;post_id=<?=$post['post_id']?>">
+                <div class="portfolio-item mx-auto bg-white shadow">
+                    <a href="index.php?action=displayPostAndComments&amp;post_id=<?=strip_tags($post['post_id'])?>">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                     	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-5x"></i></div>
                         </div>
@@ -53,7 +53,7 @@ while ($post = $listed_all_posts->fetch())
 
 <?php
 }
-$listed_all_posts->closeCursor();
+$all_posts->closeCursor();
 ?>
 
 		</div>

@@ -23,7 +23,7 @@
 			</div>
 
 <?php
-while ($comment = $all_comments->fetch())
+while ($comment = $comments->fetch())
 {
 ?>
 			<div class="col-lg-10">
@@ -33,7 +33,7 @@ while ($comment = $all_comments->fetch())
 			</div>
 <?php
 }
-$all_comments->closeCursor();
+$comments->closeCursor();
 ?>
 
 <?php
@@ -41,7 +41,7 @@ if(isset($_SESSION['login_name']))
 {
 ?>
  			<div class="col-lg-10 m-3 bg-white rounded shadow">
-                <form method="post" action="index.php?action=addComment&amp;post_id=<?=$post_details['post_id']?>">
+                <form method="post" action="index.php?action=addComment&amp;post_id=<?=strip_tags($post_details['post_id'])?>">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pt-3">
                             <label>Ton commentaire ...</label>

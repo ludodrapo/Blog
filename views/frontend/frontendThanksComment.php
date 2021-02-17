@@ -20,7 +20,7 @@
 					</p>
 				</div>
 				<div class="text-center mt-5">
-            		<a class="btn btn-l btn-info" href="index.php?action=displayPostAndComments&amp;post_id=<?=$post_id?>">Je reviens sur l'article que je lisais</a>
+            		<a class="btn btn-l btn-info" href="index.php?action=displayPostAndComments&amp;post_id=<?=strip_tags($post_id)?>">Je reviens sur l'article que je lisais</a>
         		</div>
 
 				<div class="text-center mt-5">
