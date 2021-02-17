@@ -1,13 +1,11 @@
-
 /* CSS for the blog, based on Freelancer template */
 
-/* Link with same colour as the buttons*/
+/* Link with same colour as the buttons */
 a {
   color: #17a2b8;
 }
 
 /* to make every item equal in height on larger screens */
-
 .equal-height-400 {
   min-height: 400px;
 }
@@ -20,67 +18,59 @@ a {
   min-height: 100px;
 }
 
-
 /* To always resize tinymce images to 100% width when displayed in posts */
 #tiny-content img {
   width: 100%;
   height: auto;
 }
 
-/*
-modified classes from Freelancer template to adjust colors for the blog
-*/
+/* modified classes from Freelancer template to adjust colors for the blog */
 .portfolio .portfolio-item .portfolio-item-caption {
-	background-color: rgba(23, 162, 184, 0.9);
+  background-color: rgba(23, 162, 184, 0.9);
 }
 
 .portfolio .portfolio-item .portfolio-item-caption:hover {
-	opacity: 0.6;
+  opacity: 0.6;
 }
 
+/* to replace template success color with info color for the hover, focus and active */
 
-/* to replace template success color with info color for the hover, focus and active effects */
+#mainNav .navbar-nav li.nav-item a.nav-link {
+  color: #fff;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+  color: #17a2b8;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:active,
+#mainNav .navbar-nav li.nav-item a.nav-link:focus {
+  color: #fff;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+  color: #17a2b8;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent;
+}
+
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
   color: #fff;
   background: #2c3e50;
 }
-#mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:active,
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus,
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
   color: #17a2b8;
   background: #2c3e50;
 }
-#mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #17a2b8;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-  color: #fff;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #17a2b8;
-}
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: transparent;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #17a2b8;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-  color: #fff;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #17a2b8;
-}
 
-/* To put the placeholder text behind the footer*/
+/* To put the placeholder text behind the footer */
 .floating-label-form-group input,
 .floating-label-form-group textarea {
   z-index: 0;
 }
-
-
-
