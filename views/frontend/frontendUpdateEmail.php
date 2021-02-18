@@ -44,4 +44,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/frontend/frontendTemplate.php'); ?>
+<?php require 'views/frontend/frontendTemplate.php'; ?>

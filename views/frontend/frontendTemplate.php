@@ -56,26 +56,22 @@
                             <div class="dropdown-menu bg-light">
 
 <?php
-if (!isset($_SESSION['login_name']))
-{
-?>
+if (!isset($_SESSION['login_name'])) {
+    ?>
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=goToLogin"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+
 <?php
-}
-elseif (isset($_SESSION['login_name']))
-{
-?>
+} elseif (isset($_SESSION['login_name'])) {
+    ?>
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=profile"><i class="fas fa-user-circle"></i> <?=htmlspecialchars($_SESSION['login_name'])?></a>
 
 <?php
-    if ($_SESSION['profile'] == 'administrator')
-    {
-?>
+    if ($_SESSION['profile'] === 'administrator') {
+        ?>
 
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=goToAdmin"><i class="fas fa-users-cog"></i> Blog admin</a>
 <?php
-    }
-?>
+    } ?>
 
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
 <?php
@@ -85,30 +81,25 @@ elseif (isset($_SESSION['login_name']))
                             </div>
                         </li>
 <?php
-if (!isset($_SESSION['login_name']) || $_SESSION['profile'] == 'subscriber')
-{
-?>
+if (!isset($_SESSION['login_name']) || $_SESSION['profile'] === 'subscriber') {
+    ?>
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact"><i class="far fa-envelope"></i> Contact</a>
                         </li>
 <?php
-}
-?>
+} ?>
                     </ul>
                 </div>               
             </div>
         </nav>
 
         <section>
-            <?= $content ?>   	
+            <?= $content ?>
         </section>
 
-
 <?php
-
-if (!isset($_SESSION['profile']) || $_SESSION['profile'] == 'subscriber')
-{
-?>
+if (!isset($_SESSION['profile']) || $_SESSION['profile'] === 'subscriber') {
+    ?>
         <section id="contact">
             <div class="container mt-5">
                         <!-- Contact Section Heading-->
@@ -125,9 +116,8 @@ if (!isset($_SESSION['profile']) || $_SESSION['profile'] == 'subscriber')
                                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                         <form method="post" action="index.php?action=contactMail" id="contactForm" name="contactMail" class="p-3">
 <?php
-if (!isset($_SESSION['login_name']))
-{
-?>
+    if (!isset($_SESSION['login_name'])) {
+        ?>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Name</label>
@@ -142,8 +132,7 @@ if (!isset($_SESSION['login_name']))
                             </div>
 
 <?php
-}
-?>
+    } ?>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Message</label>
@@ -160,8 +149,7 @@ if (!isset($_SESSION['login_name']))
             </div>
         </section>
 <?php
-}
-?>
+} ?>
         <footer>
             <div class="copyright bg-secondary py-3 text-center text-white">
                 <div class="container">
@@ -195,6 +183,6 @@ if (!isset($_SESSION['login_name']))
         <script src="public/js/scripts.js"></script>
         <script type="text/javascript" src="public/js/myscript.js"></script>
 
-	</body>
-		
+    </body>
+
 </html>

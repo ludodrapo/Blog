@@ -1,5 +1,8 @@
 {
     "require": {
         "tinymce/tinymce": ">= 5"
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "^1.14"
     }
 }

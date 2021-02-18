@@ -14,9 +14,8 @@
 		        </div>
 		        <div class="bg-white rounded shadow m-4 mb-5 p-3">
 <?php
-if (!isset($_SESSION['login_name']))
-{
-?>
+if (!isset($_SESSION['login_name'])) {
+    ?>
 					<p>
 						Merci pour ton mail, cher(e) lecteur/lectrice, il a bien été envoyé.
 					</p>
@@ -25,19 +24,16 @@ if (!isset($_SESSION['login_name']))
 					</p>
 
 <?php
-}
-elseif (isset($_SESSION['login_name']))
-{
-?>
+} elseif (isset($_SESSION['login_name'])) {
+    ?>
                     <p>
 						Merci pour ton message, <?=htmlspecialchars($_SESSION['login_name'])?>, il a bien été envoyé donc je l'ai en toute logique reçu.
 					</p>
 					<p>
 						J'essaie de répondre le plus rapidement possible mais sans réponse dans les 15 jours, il se peut que j'ai simplement oublié et je te prie d'ores et déjà de bien vouloir m'en excuser ... n'hésite donc pas à me recontacter.
 					</p>
-<?php	
-}
-?>
+<?php
+} ?>
 				</div>
 				<div class="text-center mt-4">
             		<a class="btn btn-l btn-info shadow" href="index.php">Retour à l'accueil</a>
@@ -50,4 +46,4 @@ elseif (isset($_SESSION['login_name']))
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/frontend/frontendTemplate.php'); ?>
+<?php require 'views/frontend/frontendTemplate.php'; ?>
