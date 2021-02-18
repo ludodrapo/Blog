@@ -19,10 +19,10 @@
 <?php
 while ($post = $all_posts->fetch())
 {
-	if (empty($post['comments_count']))
-	{
-		$post['comments_count'] = 0;
-	}
+    if (!isset($post['comments_count']))
+    {
+        $post['comments_count'] = 0;
+    }
 ?>
             <!-- Post -->
         
@@ -30,24 +30,24 @@ while ($post = $all_posts->fetch())
                 <div class="portfolio-item mx-auto bg-white shadow">
                     <a href="index.php?action=displayPostAndComments&amp;post_id=<?=strip_tags($post['post_id'])?>">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                    	   <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-5x"></i></div>
+                           <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-5x"></i></div>
                         </div>
                     </a>
                     <div class="p-3">
-	                    <div>
-	                    	<p>
-								<h4><?=htmlspecialchars($post['title'])?></h4>
-							</p>
-						</div>
+                        <div>
+                            <p>
+                                <h4><?=htmlspecialchars($post['title'])?></h4>
+                            </p>
+                        </div>
 
-						<p>
-							<em>Ecrit par <?=htmlspecialchars($post['login_name'])?>, le <?=htmlspecialchars($post['date'])?> et mis à jour le <?=htmlspecialchars($post['update_date'])?>, cet article a suscité <?=htmlspecialchars($post['comments_count'])?> commentaire(s) validé(s).</em>
-						</p>
+                        <p>
+                            <em>Ecrit par <?=htmlspecialchars($post['login_name'])?>, le <?=htmlspecialchars($post['date'])?> et mis à jour le <?=htmlspecialchars($post['update_date'])?>, cet article a suscité <?=htmlspecialchars($post['comments_count'])?> commentaire(s) validé(s).</em>
+                        </p>
 
-						<p class="lead">
-							<?= htmlspecialchars($post['lead'])?><br />
-						</p>
-					</div>
+                        <p class="lead">
+                            <?= htmlspecialchars($post['lead'])?><br />
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -56,10 +56,10 @@ while ($post = $all_posts->fetch())
 $all_posts->closeCursor();
 ?>
 
-		</div>
-	</div>
+        </div>
+    </div>
 </section>
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/frontend/frontendTemplate.php'); ?>
+<?php require 'views/frontend/frontendTemplate.php'; ?>

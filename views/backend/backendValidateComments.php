@@ -16,17 +16,17 @@
         <div class="row justify-content-center">
 
 <?php
-while ($comment = $all_awaiting_comments->fetch())
+while ($comment = $awaiting_comments->fetch())
 {
 ?>
             <div class="col-lg-6 mb-5">
-            	<div class="mx-auto shadow">
-            		<div class="equal-height-200 p-3">
-            			<p>
-            				Le <?=htmlspecialchars($comment['date'])?> à <?=htmlspecialchars($comment['time'])?>, <strong><?=htmlspecialchars($comment['login_name'])?></strong> à propos de l'article intitulé <strong>"<?=htmlspecialchars($comment['title'])?>"</strong> :
+                <div class="mx-auto bg-white shadow">
+                    <div class="equal-height-200 p-3">
+                        <p>
+                            Le <?=htmlspecialchars($comment['date'])?> à <?=htmlspecialchars($comment['time'])?>, <strong><?=htmlspecialchars($comment['login_name'])?></strong> à propos de l'article intitulé <strong>"<?=htmlspecialchars($comment['title'])?>"</strong> :
                         </p>
                         <p>
-            				<em>"<?=htmlspecialchars($comment['comment'])?>"</em>
+                            <em>"<?=htmlspecialchars($comment['comment'])?>"</em>
                         </p>
                         <div class="container">
                             <div class="row p-3">
@@ -80,12 +80,12 @@ while ($comment = $all_awaiting_comments->fetch())
                                 </div>
                             </div>
                         </div>
-            		</div>
-            	</div>
+                    </div>
+                </div>
             </div>
 <?php
 }
-$all_awaiting_comments->closeCursor();
+$awaiting_comments->closeCursor();
 ?>
         </div>
     </div>
@@ -93,4 +93,4 @@ $all_awaiting_comments->closeCursor();
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/backend/backendTemplate.php'); ?>
+<?php require 'views/backend/backendTemplate.php'; ?>

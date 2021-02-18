@@ -20,18 +20,18 @@ while ($user = $listed_users->fetch())
 {
 ?>
             <div class="col-md-6 col-lg-4 mb-5">
-            	<div class=" mx-auto shadow">
-            		<div class="container">
-            			<div class="row p-3">
-            				<div class="col-6">
-            					<strong><?=htmlspecialchars($user['login_name'])?></strong><br />Depuis le <?=htmlspecialchars($user['registration_date'])?><br />
-            				</div>
-	<?php
-	if ($user['is_active'] == 1)
-	{
-	?>
-	                        <div class="col-6 my-auto text-center">
-	                         	<a class="btn btn-danger" href="#" data-toggle="modal" data-target="#blockUser" >Bloquer</a>
+                <div class=" mx-auto bg-white shadow">
+                    <div class="container">
+                        <div class="row p-3">
+                            <div class="col-6">
+                                <strong><?=htmlspecialchars($user['login_name'])?></strong><br />Depuis le <?=htmlspecialchars($user['registration_date'])?><br />
+                            </div>
+    <?php
+    if ($user['is_active'] == 1)
+    {
+    ?>
+                            <div class="col-6 my-auto text-center">
+                                <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#blockUser" >Bloquer</a>
                                 <div id="blockUser" class="modal">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
@@ -53,14 +53,14 @@ while ($user = $listed_users->fetch())
                                         </div>
                                     </div>
                                 </div>        
-	                         </div>
-	<?php
-	}
-	elseif ($user['is_active'] == 0)
-	{
-	?>
-	                        <div class="col-6 my-auto text-center">
-	                        	<a class="btn btn-info" href="#" data-toggle="modal" data-target="#authorizeUser">Réactiver</a>
+                             </div>
+    <?php
+    }
+    elseif ($user['is_active'] == 0)
+    {
+    ?>
+                            <div class="col-6 my-auto text-center">
+                                <a class="btn btn-info" href="#" data-toggle="modal" data-target="#authorizeUser">Réactiver</a>
                                 <div id="authorizeUser" class="modal">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
@@ -82,11 +82,11 @@ while ($user = $listed_users->fetch())
                                         </div>
                                     </div>
                                 </div>        
-	                        </div>
-	<?php
-	}
-	?>
-	                    </div>
+                            </div>
+    <?php
+    }
+    ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,4 +101,4 @@ $listed_users->closeCursor();
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('backendTemplate.php'); ?>
+<?php require 'backendTemplate.php'; ?>

@@ -17,7 +17,7 @@
                     </div>
                     <form method="post" action="index.php?action=login" class="was-validated">
                         <div class="control-group">
-            	            <div class="form-group floating-label-form-group controls mb-3 pb-2">
+                            <div class="form-group floating-label-form-group controls mb-3 pb-2">
                                 <label>Pseudo</label>
                                 <input class="form-control" name="login_name" type="text" placeholder="Pseudo" required />
                             </div>
@@ -87,4 +87,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('views/frontend/frontendTemplate.php'); ?>
+<?php require 'views/frontend/frontendTemplate.php'; ?>
