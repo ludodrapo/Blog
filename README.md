@@ -7,7 +7,7 @@
 
 PHP Insights results :
 
-<img src="https://raw.github.com/ludodrapo/Le-Blog-de-Ludo/main/php_insights_results.png" alt="php insights results" width="600"/>
+<img src="https://raw.github.com/ludodrapo/Le-Blog-de-Ludo/main/php_insights_results.png" alt="php insights results" width="700"/>
 
 To try and test this blog site, you can download all the files on your server or of course clone this repository.
 
