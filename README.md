@@ -1,8 +1,13 @@
 # Le blog de Ludo
  Projet 3 - BLOG - PRFE DEV PHP OC
  
+ 
+ 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c3958ea5270544fdbd48aaf0b9ca5eff)](https://www.codacy.com/gh/ludodrapo/Le-Blog-De-Ludo/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ludodrapo/Le-Blog-De-Ludo&amp;utm_campaign=Badge_Grade)
 
+PHP Insights results :
+
+<img src="https://raw.github.com/ludodrapo/Le-Blog-de-Ludo/main/php_insights_results.png" alt="php insights results" width="600"/>
 
 To try and test this blog site, you can download all the files on your server or of course clone this repository.
 
@@ -18,5 +23,3 @@ with your own data as usual :
 ```
 $db = new PDO('mysql:host=your_host;dbname=blog;charset=utf8mb4', 'your_admin_name', 'your_password');
 ```
-
-![ScreenShot](https://raw.github.com/ludodrapo/Le-Blog-de-Ludo/main/php_insights_results.png)
