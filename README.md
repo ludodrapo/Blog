@@ -1,8 +1,6 @@
 # Le blog de Ludo
  Projet 3 - BLOG - PRFE DEV PHP OC
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c3958ea5270544fdbd48aaf0b9ca5eff)](https://www.codacy.com/gh/ludodrapo/Blog/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ludodrapo/Blog&amp;utm_campaign=Badge_Grade)
-
 To try and test this blog site, you can download all the files on your server or of course clone this repository.
 
 To fully experience it, you'll have to change the email adress all the automatic and contact mails are send to, with yours obviously ...
