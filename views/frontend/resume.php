@@ -20,9 +20,9 @@
                 
                 <div id="training" class="collapse show text-secondary">
 
-                    <h5 data-toggle="collapse" data-target="#dev" class="mb-3">Développement <span class="float-right">2020-21 <i class="fas fa-caret-down"></i></span></h5>
+                    <h5 data-toggle="collapse" data-target="#devTraining" class="mb-3">Développement <span class="float-right">2020-21 <i class="fas fa-caret-down"></i></span></h5>
 
-                    <ul id="dev" class="collapse show">
+                    <ul id="devTraining" class="collapse show">
                         <li>Parcours "Développeur PHP" OpenClassRooms, septembre 2020 - mars 2021</li>
                         <li>Cours OpenClassRooms <em>"Créez votre site web avec HTML 5.0 et CSS 3.0"</em>, juin-juillet 2020</li>
                         <li>Cours <a href="https://openclassrooms.com/fr/" target="_blank" title="Visitez OpenClassRooms">OpenClassRooms</a> <em>"Apprenez à programmer en Python"</em>, juin 2020</li>
@@ -57,10 +57,32 @@
 
                 <div id="ability" class="collapse show text-secondary">
 
-                    <h5 data-toggle="collapse" data-target="#dev" class="mb-3">Développement <i class="fas fa-caret-down"></i></h5>
-                    <ul id="dev" class="collapse show">
-                        <li>Maitrise des bases de <em>Python</em> sur PyCharm CE, <em>HTML 5.0 et CSS 3.0</em> sur Sublime Text</li>
-                    </ul>
+                    <h5 data-toggle="collapse" data-target="#devExpertise" class="mb-3">Développement <i class="fas fa-caret-down"></i></h5>
+                    <div id="devExpertise" class="collapse show mb-3">
+                        <div id="logos" class="container d-flex flex-wrap justify-content-around">
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_html.png" />
+                            </div>
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_css.png" />
+                            </div>
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_bootstrap.png" />
+                            </div>
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_sublime_text.png" />
+                            </div>
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_mamp.png" />
+                            </div>
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_mysql.png" />
+                            </div>
+                            <div class="p-2">
+                                <img src="public/img/logos/logo_php.png" />
+                            </div>
+                        </div>
+                    </div>
 
                     <h5 data-toggle="collapse" data-target="#languages" class="mb-3">Langues <i class="fas fa-caret-down"></i></h5>
                     <ul id="languages" class="collapse">
@@ -136,9 +158,9 @@
             </div>
         </div>
 
-        <div class="row justify-content-center pt-lg-5 pt-3">
+        <div class="row justify-content-center">
             <div class="col-lg-10 py-4 pb-3 mb-4 mx-3 bg-white shadow rounded text-center">
-                <a href="public/CV LD RM 2020.pdf"><i class="fas fa-file-alt"></i> Télécharger le CV au format PDF.</a>
+                <a href="public/CV LD RM 2020.pdf"><h4><i class="fas fa-file-alt"></i> Télécharger le CV en PDF</h4></a>
             </div>
         </div>
 

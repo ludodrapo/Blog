@@ -24,7 +24,7 @@
                     </div>
                     <br />
                     <div class="form-group text-center">
-                    	<button class="btn btn-info btn-l" type="submit">Valider</button>
+                        <button class="btn btn-info btn-l" type="submit">Valider</button>
                     </div>
                 </form>
             </div>

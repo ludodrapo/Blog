@@ -14,7 +14,7 @@
                 </div>
                 <div class="bg-white text-center shadow my-5 pt-4 p-3">
                     <p>
-                        <?=$bug_message?><br />
+                        <?php echo $bug_message?><br />
                     </p>
                 </div>
                 <div class="text-center mt-4">

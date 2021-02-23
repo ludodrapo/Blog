@@ -30,12 +30,12 @@
                     </div>
                     <br />
                     <div class="form-group text-center">
-                    	<button class="btn btn-info btn-l" type="submit"><i class="fas fa-thumbs-up"></i> Je confirme le changement</button>
+                        <button class="btn btn-info btn-l" type="submit"><i class="fas fa-thumbs-up"></i> Je confirme le changement</button>
                     </div>
                 </form>
                 <br />
                 <div class="text-center">
-                	<a href="index.php?action=profile"><button class="btn btn-danger btn-l"><i class="fas fa-thumbs-down"></i> Non, finalement, non.</button></a>
+                    <a href="index.php?action=profile"><button class="btn btn-danger btn-l"><i class="fas fa-thumbs-down"></i> Non, finalement, non.</button></a>
                 </div>
             </div>
         </div>

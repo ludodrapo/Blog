@@ -1,6 +1,9 @@
-/* Script added to fix some issues */
+/*
+ * Script added to fix some issues
+ */
 
-/* To close the navbar even when clicking anywhere but on the navbar-toggler */
+
+//To close the navbar even when clicking anywhere but on the navbar-toggler
 
 $(document).ready(function () {
     $(document).click(function (event) {

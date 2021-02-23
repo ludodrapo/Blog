@@ -12,17 +12,15 @@
 
         <!-- Favicon I did-->
         <link rel="icon" type="image/x-icon" href="public/img/favicon.ico" />
-                <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="public/css/styles.css" />
-                <!-- My css file -->
+        <!-- My css file -->
         <link rel="stylesheet" href="public/css/mystyle.css" />
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/c5aa82aba4.js" crossorigin="anonymous"></script>
-
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-
 
     </head>
 
@@ -41,15 +39,10 @@
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php"><i class="fas fa-home"></i></a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?action=displayAllPosts"><i class="far fa-newspaper"></i> Blog</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?action=displayAllPosts"><i class="fas fa-newspaper"></i> Blog</a>
                         </li>
-                        <li class="nav-item dropdown mx-0 mx-lg-1">
-                            <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3" id="navbardrop" data-toggle="dropdown"><i class="far fa-id-badge"></i> Ludo</a>
-                            <div class="dropdown-menu bg-light">
-                                <a class="dropdown-item text-info font-weight-bold" href="index.php?action=goToResume"><i class="fas fa-file-alt"></i> C.V.</a>
-                                <a class="dropdown-item text-info font-weight-bold" href="#"><i class="far fa-images"></i> Voyages</a>
-                                <a class="dropdown-item text-info font-weight-bold" href="#"><i class="fas fa-headphones"></i> Enregistrements</a>
-                            </div>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.php?action=goToResume"><i class="fas fa-file-alt"></i> C.V.</a>
                         </li>
                         <li class="nav-item dropdown mx-0 mx-lg-1">
                             <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3" id="navbardrop" data-toggle="dropdown"><i class="fas fa-user-circle"></i> Ton espace</a>
@@ -60,22 +53,22 @@ if (!isset($_SESSION['login_name'])) {
     ?>
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=goToLogin"><i class="fas fa-sign-in-alt"></i> Connexion</a>
 
-<?php
+    <?php
 } elseif (isset($_SESSION['login_name'])) {
-    ?>
-                                <a class="dropdown-item text-info font-weight-bold" href="index.php?action=profile"><i class="fas fa-user-circle"></i> <?=htmlspecialchars($_SESSION['login_name'])?></a>
+        ?>
+                                <a class="dropdown-item text-info font-weight-bold" href="index.php?action=profile"><i class="fas fa-user-circle"></i> <?php echo htmlspecialchars($_SESSION['login_name'])?></a>
 
-<?php
+    <?php
     if ($_SESSION['profile'] === 'administrator') {
         ?>
 
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=goToAdmin"><i class="fas fa-users-cog"></i> Blog admin</a>
-<?php
+        <?php
     } ?>
 
                                 <a class="dropdown-item text-info font-weight-bold" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
-<?php
-}
+    <?php
+    }
 ?>
 
                             </div>
@@ -86,7 +79,7 @@ if (!isset($_SESSION['login_name']) || $_SESSION['profile'] === 'subscriber') {
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact"><i class="far fa-envelope"></i> Contact</a>
                         </li>
-<?php
+    <?php
 } ?>
                     </ul>
                 </div>               
@@ -94,12 +87,12 @@ if (!isset($_SESSION['login_name']) || $_SESSION['profile'] === 'subscriber') {
         </nav>
 
         <section>
-            <?= $content ?>
+            <?php echo $content ?>
         </section>
 
 <?php
 if (!isset($_SESSION['profile']) || $_SESSION['profile'] === 'subscriber') {
-    ?>
+        ?>
         <section id="contact">
             <div class="container mt-5">
                         <!-- Contact Section Heading-->
@@ -115,12 +108,12 @@ if (!isset($_SESSION['profile']) || $_SESSION['profile'] === 'subscriber') {
                     <div class="col-lg-8 mx-lg-auto mx-3 bg-white shadow rounded">
                                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                         <form method="post" action="index.php?action=contactMail" id="contactForm" name="contactMail" class="p-3">
-<?php
+    <?php
     if (!isset($_SESSION['login_name'])) {
         ?>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Name</label>
+                                    <label>Nom</label>
                                     <input class="form-control" name="name" type="text" placeholder="Nom" required />
                                 </div>
                             </div>
@@ -131,7 +124,7 @@ if (!isset($_SESSION['profile']) || $_SESSION['profile'] === 'subscriber') {
                                 </div>
                             </div>
 
-<?php
+        <?php
     } ?>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -148,8 +141,8 @@ if (!isset($_SESSION['profile']) || $_SESSION['profile'] === 'subscriber') {
                 </div>
             </div>
         </section>
-<?php
-} ?>
+    <?php
+    } ?>
         <footer>
             <div class="copyright bg-secondary py-3 text-center text-white">
                 <div class="container">
@@ -180,8 +173,8 @@ if (!isset($_SESSION['profile']) || $_SESSION['profile'] === 'subscriber') {
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
+        <script src="public/js/myscript.js"></script>
         <script src="public/js/scripts.js"></script>
-        <script type="text/javascript" src="public/js/myscript.js"></script>
 
     </body>
 

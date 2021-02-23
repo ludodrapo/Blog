@@ -21,34 +21,32 @@
         <div class="row justify-content-center">
 
 <?php
-while ($post = $listed_all_posts->fetch())
-{
-?>
+while ($post = $listed_all_posts->fetch()) {
+    ?>
             <div class="col-md-6 col-xl-4 mb-5">
                 <div class="mx-auto bg-white shadow">
-                    <div class="equal-height-400 p-3">
+                    <div class="equal-height-600 p-3">
                         <p>
-                            <h4><?=htmlspecialchars($post['title'])?></h4>
+                            <h4 class="text-uppercase"><?php echo htmlspecialchars($post['title'])?></h4>
                         </p>
                         <p>
-                            <em><?= htmlspecialchars($post['lead'])?></em>
+                            <em><?php echo htmlspecialchars($post['lead'])?></em>
                         </p>
-                        <div id="tiny-content">
-                            <?= substr(htmlspecialchars_decode($post['content']), 0, 150) ?> ...
+                        <div class="tiny-content">
+                            <?php echo substr(htmlspecialchars_decode($post['content']), 0, 200) ?> ...
                         </div>
                     </div>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-6 text-center mb-3">
-                                <a class="btn btn-l btn-info" href="backendIndex.php?action=fillUpdatePostPage&amp;post_id=<?=strip_tags($post['post_id'])?>">Modifier</a>
+                                <a class="btn btn-l btn-info" href="backendIndex.php?action=fillUpdatePostPage&amp;post_id=<?php echo strip_tags($post['post_id'])?>">Modifier</a>
                             </div>
-<?php
-if ($post['is_ok'] == 1)
-{
-?>
+    <?php
+    if ($post['is_ok'] == 1) {
+        ?>
                             <div class="col-6 text-center mb-3">
-                                <a class="btn btn-l btn-danger" href="#" data-toggle="modal" data-target="#deactivatePost">Désactiver</a>
-                                <div id="deactivatePost" class="modal">
+                                <a class="btn btn-l btn-danger" href="#" data-toggle="modal" data-target="#deactivatePost<?php echo htmlspecialchars($post['post_id'])?>">Désactiver</a>
+                                <div id="deactivatePost<?php echo htmlspecialchars($post['post_id'])?>" class="modal">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -63,21 +61,19 @@ if ($post['is_ok'] == 1)
                                                     <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=deactivatePost&amp;post_id=<?=strip_tags($post['post_id'])?>">J'assume</a>
+                                                    <a class="btn btn-danger" href="backendIndex.php?action=deactivatePost&amp;post_id=<?php echo strip_tags($post['post_id'])?>">J'assume</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>        
                             </div>
-<?php
-}
-elseif ($post['is_ok'] == 0)
-{
-?>
+        <?php
+    } elseif ($post['is_ok'] == 0) {
+        ?>
                             <div class="col-6 text-center mb-3">
-                                <a class="btn btn-l btn-info" href="#" data-toggle="modal" data-target="#activatePost">Activer</a>
-                                <div id="activatePost" class="modal">
+                                <a class="btn btn-l btn-info" href="#" data-toggle="modal" data-target="#activatePost<?php echo htmlspecialchars($post['post_id'])?>">Activer</a>
+                                <div id="activatePost<?php echo htmlspecialchars($post['post_id'])?>" class="modal">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -92,23 +88,21 @@ elseif ($post['is_ok'] == 0)
                                                     <a class="btn btn-info" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-danger" href="backendIndex.php?action=activatePost&amp;post_id=<?=strip_tags($post['post_id'])?>">J'assume</a>
+                                                    <a class="btn btn-danger" href="backendIndex.php?action=activatePost&amp;post_id=<?php echo strip_tags($post['post_id'])?>">J'assume</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>                     
-<?php
-}
-?>
+        <?php
+    } ?>
                         </div>
                     </div>
                 </div>                
             </div>
-<?php
-}
-?>
+    <?php
+} ?>
         </div>
     </div>
 </section>

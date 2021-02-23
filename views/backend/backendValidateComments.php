@@ -16,17 +16,16 @@
         <div class="row justify-content-center">
 
 <?php
-while ($comment = $awaiting_comments->fetch())
-{
-?>
+while ($comment = $awaiting_comments->fetch()) {
+    ?>
             <div class="col-lg-6 mb-5">
                 <div class="mx-auto bg-white shadow">
                     <div class="equal-height-200 p-3">
                         <p>
-                            Le <?=htmlspecialchars($comment['date'])?> à <?=htmlspecialchars($comment['time'])?>, <strong><?=htmlspecialchars($comment['login_name'])?></strong> à propos de l'article intitulé <strong>"<?=htmlspecialchars($comment['title'])?>"</strong> :
+                            Le <?php echo htmlspecialchars($comment['date'])?> à <?php echo htmlspecialchars($comment['time'])?>, <strong><?php echo htmlspecialchars($comment['login_name'])?></strong> à propos de l'article intitulé <strong>"<?php echo htmlspecialchars($comment['title'])?>"</strong> :
                         </p>
                         <p>
-                            <em>"<?=htmlspecialchars($comment['comment'])?>"</em>
+                            <em>"<?php echo htmlspecialchars($comment['comment'])?>"</em>
                         </p>
                         <div class="container">
                             <div class="row p-3">
@@ -41,14 +40,14 @@ while ($comment = $awaiting_comments->fetch())
                                                 <button type="button" class="close" data-dismiss="modal">×</button>
                                             </div>
                                             <div class="modal-body py-1 px-5">
-                                                    Attention, tu t'apprêtes à valider le commentaire de <?=htmlspecialchars($comment['login_name'])?>
+                                                    Attention, tu t'apprêtes à valider le commentaire de <?php echo htmlspecialchars($comment['login_name'])?>
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
                                                     <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-info" href="backendIndex.php?action=validateComment&amp;comment_id=<?=strip_tags($comment['comment_id'])?>">Je valide</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=validateComment&amp;comment_id=<?php echo strip_tags($comment['comment_id'])?>">Je valide</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,14 +64,14 @@ while ($comment = $awaiting_comments->fetch())
                                                 <button type="button" class="close" data-dismiss="modal">×</button>
                                             </div>
                                             <div class="modal-body py-1 px-5">
-                                                    Attention, tu t'apprêtes à supprimer définitivement le commentaire de <?=htmlspecialchars($comment['login_name'])?> ...<br />Un mail automatique va lui être envoyé.
+                                                    Attention, tu t'apprêtes à supprimer définitivement le commentaire de <?php echo htmlspecialchars($comment['login_name'])?> ...<br />Un mail automatique va lui être envoyé.
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
                                                     <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-info" href="backendIndex.php?action=deleteComment&amp;comment_id=<?=strip_tags($comment['comment_id'])?>">Compris</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=deleteComment&amp;comment_id=<?php echo strip_tags($comment['comment_id'])?>">Compris</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +82,7 @@ while ($comment = $awaiting_comments->fetch())
                     </div>
                 </div>
             </div>
-<?php
+    <?php
 }
 $awaiting_comments->closeCursor();
 ?>

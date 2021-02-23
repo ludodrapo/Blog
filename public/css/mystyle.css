@@ -1,27 +1,38 @@
 /* CSS for the blog, based on Freelancer template */
 
 /* Link with same colour as the buttons */
-a {
+a, a:hover {
   color: #17a2b8;
 }
 
-/* to make every item equal in height on larger screens */
-.equal-height-400 {
-  min-height: 400px;
+#mainNav .navbar-brand:hover {
+  color: #17a2b8;
+}
+
+/* to make every item equal in height on larger screens on backend */
+.equal-height-600 {
+  min-height: 600px;
 }
 
 .equal-height-200 {
   min-height: 200px;
 }
 
-.equal-height-100 {
-  min-height: 100px;
+/* idem on frontend */
+.portfolio .portfolio-item {
+  height: 675px;
 }
 
 /* To always resize tinymce images to 100% width when displayed in posts */
-#tiny-content img {
+.tiny-content img {
   width: 100%;
   height: auto;
+}
+
+/* to make brand logos equal in height on the resume or elsewhere */
+#logos img {
+  width: auto;
+  height: 60px;
 }
 
 /* modified classes from Freelancer template to adjust colors for the blog */
@@ -67,10 +78,4 @@ a {
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
   color: #17a2b8;
   background: #2c3e50;
-}
-
-/* To put the placeholder text behind the footer */
-.floating-label-form-group input,
-.floating-label-form-group textarea {
-  z-index: 0;
 }

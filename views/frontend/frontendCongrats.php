@@ -14,7 +14,7 @@
                 </div>
                 <div class="bg-white rounded shadow text-center my-5 py-5">
                     <p>
-                        Ton compte a bien été créé, félicitations <?=htmlspecialchars($_SESSION['login_name'])?>.<br />
+                        Ton compte a bien été créé, félicitations <?php echo htmlspecialchars($_SESSION['login_name'])?>.<br />
                         Nous sommes super contents de t'accueillir à bord.<br />
                         Bonne lecture et bons commentaires !<br />
                         Et sincèrement, merci pour ton inscription.<br />

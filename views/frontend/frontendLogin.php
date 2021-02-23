@@ -54,7 +54,7 @@
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>Pseudo</label>
-                                <input class="form-control" name="new_login_name" type="text" placeholder="Un pseudo qui te ressemble" required />
+                                <input class="form-control" name="new_login_name" type="text" placeholder="Un pseudo qui te ressemble" required /><p class="help-block text-info">Attention : ce pseudo ne doit pas dépasser 16 caractères, merci de ta compréhension.</p>
                             </div>
                         </div>
                         <div class="control-group">

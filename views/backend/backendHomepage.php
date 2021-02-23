@@ -18,7 +18,7 @@
                         <p>
                             Il y a actuellement :
                         </p>
-                        <a class="btn btn-info btn-xl mb-3" href="backendIndex.php?action=displayAwaitingComments"><i class="fas fa-comment"></i> <?=strip_tags($awaiting_comments['count'])?></a>
+                        <a class="btn btn-info btn-xl mb-3" href="backendIndex.php?action=displayAwaitingComments"><i class="fas fa-comment"></i> <?php echo strip_tags($awaiting_comments['count'])?></a>
                         <p>
                             <strong>commentaires</strong>
                         </p>
@@ -41,14 +41,13 @@
                             </thead>
                             <tbody>
 <?php
-while ($post = $posts_ranking->fetch())
-{
-?>
+while ($post = $posts_ranking->fetch()) {
+    ?>
                                 <tr>
-                                    <td><?=strip_tags($post['title'])?></td>
-                                    <td><?=strip_tags($post['comments_count'])?></td>
+                                    <td><?php echo strip_tags($post['title'])?></td>
+                                    <td><?php echo strip_tags($post['comments_count'])?></td>
                                 </tr>
-<?php
+    <?php
 }
 $posts_ranking->closeCursor();
 ?>
