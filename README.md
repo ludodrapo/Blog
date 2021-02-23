@@ -18,5 +18,5 @@ const ADMIN_EMAIL = "admin@ludodrapo.fr"; //change the email adress for yours if
 and the line 9 :
 ```
  return new PDO('mysql:host=localhost;dbname=blog;charset=utf8mb4', 'root', 'root');
- // if needed also, change the host name for the one you gave, change the user name and password (here 'root' for both) and if it doesn't work on windows, just keep the password (last entry) empty.
+ // if needed also, change the host name for the one you gave, change the user name and password (here 'root' for both) and if it doesn't work on windows, just empty the password (last entry).
 ```
