@@ -11,13 +11,12 @@ PHP Insights results :<br />
 To try and test this blog site, you can download all the files on your server or of course clone this repository.
 To install the blog database filled with some posts and comments, please import it using the blog_db.sql script.
 
-To fully experience it, you'll have to change the email adress all the automatic and contact mails are send to, with yours obviously ...
-
-You'll have to check the manager.php file and modify the line 7 :
+You'll have to check the manager.php file and modify the line 5 :
 ```
-$db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8mb4', 'root', 'root');
+const ADMIN_EMAIL = "admin@ludodrapo.fr"; //change the email adress for yours if needed
 ```
-with your own data as usual :
+and the line 9 :
 ```
-$db = new PDO('mysql:host=your_host;dbname=blog;charset=utf8mb4', 'your_admin_name', 'your_password');
+ return new PDO('mysql:host=localhost;dbname=blog;charset=utf8mb4', 'root', 'root');
+ // if needed also, change the host name for the one you gave, change the user name and password (here 'root' for both) and if it doesn't work on windows, just keep the password (last entry) empty.
 ```
