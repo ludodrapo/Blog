@@ -21,7 +21,7 @@ if ($_SESSION['profile'] !== 'administrator') {
                     <h3 class="text-secondary mb-3">Le blog et toi</h3>
 
                     <p>
-                        Tu as déjà fait <?=htmlspecialchars($count['comments_count'])?> commentaire(s) validés ou en attente de validation, à propos de <?=htmlspecialchars($count['posts_count'])?> article(s). Merci <?=htmlspecialchars($_SESSION['login_name'])?> pour ta participation à la vie de ce blog. C'est super !
+                        Tu as déjà fait <?php echo htmlspecialchars($count['comments_count'])?> commentaire(s) validés ou en attente de validation, à propos de <?php echo htmlspecialchars($count['posts_count'])?> article(s). Merci <?php echo htmlspecialchars($_SESSION['login_name'])?> pour ta participation à la vie de ce blog. C'est super !
                     </p>
                 </div>
         <?php
@@ -31,7 +31,7 @@ if ($_SESSION['profile'] !== 'administrator') {
                     <h3 class="text-secondary mb-3">Le blog et toi</h3>
 
                     <p>
-                        Tu n'as pas encore posté de commentaire sur notre blog depuis ton inscription le <?=htmlspecialchars($_SESSION['registration_date'])?>, <?=htmlspecialchars($_SESSION['login_name'])?> ... N'hésite surtout pas à te lancer, nous sommes très gentils.
+                        Tu n'as pas encore posté de commentaire sur notre blog depuis ton inscription le <?php echo htmlspecialchars($_SESSION['registration_date'])?>, <?php echo htmlspecialchars($_SESSION['login_name'])?> ... N'hésite surtout pas à te lancer, nous sommes très gentils.
                     </p>
                 </div>
                 
@@ -39,12 +39,12 @@ if ($_SESSION['profile'] !== 'administrator') {
         <?php
     }
 }
-        ?>
+?>
                 <div class="bg-white my-3 p-4 shadow rounded">
                     <h3 class="text-secondary mb-3">Mettre à jour ton profil</h3>
                     <br />
                     <p>
-                        Ton adresse de contact est actuellement : <?=htmlspecialchars($_SESSION['email'])?>.
+                        Ton adresse de contact, <?php echo htmlspecialchars($_SESSION['login_name'])?>, est actuellement : <?php echo htmlspecialchars($_SESSION['email'])?>.
                     </p>
                     <div class="text-center my-5">
                         <a class="btn btn-l btn-info" href="index.php?action=goToUpdateEmail">Je modifie mon adresse email</a>

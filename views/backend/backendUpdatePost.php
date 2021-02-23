@@ -17,21 +17,21 @@
                 <form method="post" action="backendIndex.php?action=updatePost" class="center mb-3">
                     <div class="form-group">
                         <h4>Titre de l'article</h4>
-                        <textarea type="text" class="form-control" name="title" required rows="1" cols="30" placeholder="Genre un gimmick, une phrase choc !"><?=htmlspecialchars($post_details['title'])?></textarea> 
+                        <textarea type="text" class="form-control" name="title" required rows="1" cols="30" placeholder="Genre un gimmick, une phrase choc !"><?php echo htmlspecialchars($post_details['title'])?></textarea> 
                     </div>
                     <div class="form-group">
                         <h4>Lead</h4>
-                        <textarea type="text" class="form-control" name="lead" required rows="5" cols="3à" placeholder="Chapô en français ... pour donner envie de tout lire"><?=htmlspecialchars($post_details['lead'])?></textarea>
+                        <textarea type="text" class="form-control" name="lead" required rows="5" cols="3à" placeholder="Chapô en français ... pour donner envie de tout lire"><?php echo htmlspecialchars($post_details['lead'])?></textarea>
                     </div>
                     <div class="form-group">
                         <h4>Contenu de l'article</h4>
-                        <textarea id="editor" name="content" placeholder="Du fond, du sens, et du rythme ..."><?=htmlspecialchars_decode($post_details['content'])?></textarea>
+                        <textarea id="editor" name="content" placeholder="Du fond, du sens, et du rythme ..."><?php echo htmlspecialchars_decode($post_details['content'])?></textarea>
                     </div>
                     <div class="form-group">
                         <h4>Catégorie de l'article</h4>
-                        <textarea type="text" class="form-control" name="category" required rows="1" cols="30" placeholder="En pensant à un éventuel tri plus tard ... "><?=htmlspecialchars($post_details['category'])?></textarea>
+                        <textarea type="text" class="form-control" name="category" required rows="1" cols="30" placeholder="En pensant à un éventuel tri plus tard ... "><?php echo htmlspecialchars($post_details['category'])?></textarea>
                     </div>
-                    <input type="hidden" name="post_id" value="<?=strip_tags($post_details['post_id'])?>">
+                    <input type="hidden" name="post_id" value="<?php echo strip_tags($post_details['post_id'])?>">
                     <br />
                     <div class="text-center">
                         <button class="btn btn-l btn-info" type="submit">Enregistrer</button>

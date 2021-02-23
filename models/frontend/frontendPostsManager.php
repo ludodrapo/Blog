@@ -2,19 +2,21 @@
 
 require_once 'models/Manager.php';
 
-class PostsManager extends Manager
+final class PostsManager extends Manager
 {
     public function listAllPosts()
     {
         $blog_db = $this->dbConnect();
         return $blog_db->query(
-        'SELECT
+            'SELECT
             posts.post_id,
             posts.title,
             DATE_FORMAT(posts.creation_date, "%d/%m/%Y") AS date,
             DATE_FORMAT(posts.update_date, "%d/%m/%Y") AS update_date,
             posts.lead,
-            users.login_name, SUM(comments.is_ok) AS comments_count
+            posts.content,
+            users.login_name,
+            SUM(comments.is_ok) AS comments_count
         FROM ((posts
             JOIN users ON posts.user_id = users.user_id)
             LEFT JOIN comments ON comments.post_id = posts.post_id)
@@ -32,7 +34,9 @@ class PostsManager extends Manager
                 posts.title,
                 DATE_FORMAT(posts.creation_date, "%d/%m/%Y") AS date,
                 DATE_FORMAT(posts.update_date, "%d/%m/%Y") AS update_date,
-                posts.lead, users.login_name,
+                posts.lead,
+                posts.content,
+                users.login_name,
                 SUM(comments.is_ok) AS comments_count
             FROM ((posts 
                 JOIN users ON posts.user_id = users.user_id)
@@ -61,8 +65,8 @@ class PostsManager extends Manager
                 posts
                 INNER JOIN users ON posts.user_id = users.user_id
             WHERE posts.post_id = ?'
-            );
-        
+        );
+
         $get_post_details->execute(array($post_id));
         return $get_post_details->fetch(PDO::FETCH_ASSOC);
     }

@@ -14,7 +14,7 @@
                 </div>
                 <div class="bg-light shadow text-center my-5 p-3">
                     <p>
-                        <?=$congrats_message?><br />
+                        <?php echo $congrats_message?><br />
                     </p>
                 </div>
                 <div class="text-center mt-4">

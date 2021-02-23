@@ -14,7 +14,7 @@
                 </div>
                 <div class="bg-white text-center rounded shadow my-5 pt-4 p-3">
                     <p>
-                        <?=$bug_message?><br />
+                        <?php echo $bug_message?><br />
                         <!-- add forgotten password function-->
                     </p>
                 </div>

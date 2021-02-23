@@ -16,23 +16,21 @@
         <div class="row justify-content-center">
 
 <?php
-while ($user = $listed_users->fetch())
-{
-?>
+while ($user = $listed_users->fetch(PDO::FETCH_ASSOC)) { ?>
+
             <div class="col-md-6 col-lg-4 mb-5">
-                <div class=" mx-auto bg-white shadow">
+                <div class="mx-auto bg-white shadow">
                     <div class="container">
                         <div class="row p-3">
                             <div class="col-6">
-                                <strong><?=htmlspecialchars($user['login_name'])?></strong><br />Depuis le <?=htmlspecialchars($user['registration_date'])?><br />
+                                <strong><?php echo htmlspecialchars($user['login_name'])?></strong><br />Depuis le <?php echo htmlspecialchars($user['registration_date'])?><br />
                             </div>
     <?php
-    if ($user['is_active'] == 1)
-    {
-    ?>
+    if ($user['is_active'] == 1) { ?>
+
                             <div class="col-6 my-auto text-center">
-                                <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#blockUser" >Bloquer</a>
-                                <div id="blockUser" class="modal">
+                                <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#blockUser<?php echo htmlspecialchars($user['user_id'])?>">Bloquer</a>
+                                <div id="blockUser<?php echo htmlspecialchars($user['user_id'])?>" class="modal">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -40,28 +38,27 @@ while ($user = $listed_users->fetch())
                                                 <button type="button" class="close" data-dismiss="modal">×</button>
                                             </div>
                                             <div class="modal-body py-1 px-5">
-                                                Attention, tu t'apprêtes à bloquer <?=htmlspecialchars($user['login_name'])?>, un mail automatique va lui être envoyé et il ou elle risque d'assez mal le prendre si c'est une erreur ...
+                                                Attention, tu t'apprêtes à bloquer <?php echo htmlspecialchars($user['login_name'])?>, un mail automatique va lui être envoyé et il ou elle risque d'assez mal le prendre si c'est une erreur ...
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
                                                     <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-info" href="backendIndex.php?action=blockUser&amp;user_id=<?=strip_tags($user['user_id'])?>">J'assume</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=blockUser&amp;user_id=<?php echo strip_tags($user['user_id'])?>">J'assume</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>        
-                             </div>
+                            </div>
+                      
     <?php
-    }
-    elseif ($user['is_active'] == 0)
-    {
-    ?>
+    } elseif ($user['is_active'] == 0) { ?>
+
                             <div class="col-6 my-auto text-center">
-                                <a class="btn btn-info" href="#" data-toggle="modal" data-target="#authorizeUser">Réactiver</a>
-                                <div id="authorizeUser" class="modal">
+                                <a class="btn btn-info" href="#" data-toggle="modal" data-target="#authorizeUser<?php echo htmlspecialchars($user['user_id'])?>">Réactiver</a>
+                                <div id="authorizeUser<?php echo htmlspecialchars($user['user_id'])?>" class="modal">
                                     <div class="modal-dialog modal-lg modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -69,14 +66,14 @@ while ($user = $listed_users->fetch())
                                                 <button type="button" class="close" data-dismiss="modal">×</button>
                                             </div>
                                             <div class="modal-body py-1 px-5">
-                                                    Attention, tu t'apprêtes à redonner à <?=htmlspecialchars($user['login_name'])?> l'accès aux commentaires et un mail automatique va lui être envoyé ...
+                                                    Attention, tu t'apprêtes à redonner à <?php echo htmlspecialchars($user['login_name'])?> l'accès aux commentaires et un mail automatique va lui être envoyé ...
                                             </div>
                                             <div class="modal-footer p-3">
                                                 <div>
                                                     <a class="btn btn-danger" class="close" data-dismiss="modal">J'annule</a>
                                                 </div>
                                                 <div>
-                                                    <a class="btn btn-info" href="backendIndex.php?action=authorizeUser&amp;user_id=<?=$user['user_id']?>">Compris</a>
+                                                    <a class="btn btn-info" href="backendIndex.php?action=authorizeUser&amp;user_id=<?php echo strip_tags($user['user_id'])?>">Compris</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,16 +81,14 @@ while ($user = $listed_users->fetch())
                                 </div>        
                             </div>
     <?php
-    }
-    ?>
+    } ?>
                         </div>
                     </div>
                 </div>
             </div>
 <?php
 }
-$listed_users->closeCursor();
-?>
+$listed_users->closeCursor(); ?>
 
         </div>
     </div>

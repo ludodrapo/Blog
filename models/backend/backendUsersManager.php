@@ -2,7 +2,7 @@
 
 require_once 'models/Manager.php';
 
-class UsersManager extends Manager
+final class UsersManager extends Manager
 {
     public function listAllUsers()
     {
@@ -24,9 +24,11 @@ class UsersManager extends Manager
         $blog_db = $this->dbConnect();
         $user_id = (int) $user_id;
         $user_to_deactivate = $blog_db->prepare('UPDATE users SET is_active = 0 WHERE user_id = :user_id');
-        return $user_to_deactivate->execute(array(
+        return $user_to_deactivate->execute(
+            array(
             'user_id' => $user_id
-        ));
+            )
+        );
     }
 
     public function activateUSer($user_id)
@@ -34,8 +36,10 @@ class UsersManager extends Manager
         $blog_db = $this->dbConnect();
         $user_id = (int) $user_id;
         $user_to_activate = $blog_db->prepare('UPDATE users SET is_active = 1 WHERE user_id = :user_id');
-        return $user_to_activate->execute(array(
+        return $user_to_activate->execute(
+            array(
             'user_id' => $user_id
-        ));
+            )
+        );
     }
 }

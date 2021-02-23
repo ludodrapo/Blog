@@ -2,7 +2,7 @@
 
 require_once 'models/Manager.php';
 
-class CommentsManager extends Manager
+final class CommentsManager extends Manager
 {
     public function getAwaitingComments()
     {

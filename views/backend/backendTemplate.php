@@ -33,7 +33,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                    	<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="backendIndex.php"><i class="fas fa-home"></i></a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="backendIndex.php"><i class="fas fa-home"></i></a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="backendIndex.php?action=displayAwaitingComments"><i class="fas fa-comments"></i> Commentaires</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="backendIndex.php?action=displayAllPosts"><i class="far fa-newspaper"></i> Posts</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="backendIndex.php?action=displayAllSubscribers"><i class="fas fa-users"></i> Abonnés</a></li>
@@ -44,7 +44,7 @@
         </nav>
 
 
-        <?=$content?>
+        <?php echo $content?>
 
 
         <footer class="copyright">
@@ -74,6 +74,6 @@
         <script type="text/javascript" src="public/js/myscript.js"></script>
 
 
-	</body>
-		
+    </body>
+        
 </html>
