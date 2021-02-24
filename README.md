@@ -11,7 +11,7 @@ PHP Insights results :<br />
 To try and test this blog site, you can download all the files on your server or of course clone this repository.
 
 To install the blog demo database (mysql) filled with some posts and comments, please import it using the blog_db.sql script.
-Demo users are : admin, subscriber1 and subscriber2, all using the same password : @My1rstBlog4U
+Demo users are : admin, subscriber1 and subscriber2, all using the same password : @My1stBlog4U
 
 You'll have to check the manager.php file and may have to modify the line 5 :
 ```
