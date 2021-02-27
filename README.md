@@ -6,12 +6,16 @@
 PHP Insights results :<br />
 <img src="https://raw.github.com/ludodrapo/Le-Blog-de-Ludo/main/php_insights_results.png" alt="php insights results" width="700"/>
 
-To try and test this blog site, you can download all the files on your server or of course clone this repository.
+To test this blog site, you can :
 
-To install the blog demo database (mysql) filled with some posts and comments, please import it using the blog_db.sql script.
-Demo users are : admin, subscriber1 and subscriber2, all using the same password : @My1stBlog4U
+1) download all the files on your server or of course clone this repository (git clone https://github.com/ludodrapo/Le-Blog-De-Ludo.git)
+2) start MAMP/WAMP/XAMP and copy the files in a folder called for instance 'blog' into your localhost directory
+3) install the blog demo database (mysql) filled with some posts and comments, using the blog_db.sql script (import in phpMyAdmin)
+4) open your browser and go to localhost:8888/blog (or any name you chose for the folder)
 
-You'll have to check the manager.php file and may have to modify the line 5 :
+Demo users are : 'admin', 'subscriber1' and 'subscriber2', all using the same password : '@My1stBlog4U'
+
+You might have to check the manager.php file and modify the line 5 :
 ```
 const ADMIN_EMAIL = "admin@ludodrapo.fr"; //change the email adress for yours if needed
 ```
